@@ -1,0 +1,19 @@
+@import "globals";
+:root {
+  color-scheme: light dark;
+}
+body {
+  background-color: $bg-light;
+}
+
+.menu-button {
+  cursor: pointer;
+  border: $react-blue-dark solid 1px;
+  border-bottom: $react-blue-dark solid 4px;
+  border-right: $react-blue-dark solid 4px;
+  display: flex;
+  align-items: center;
+  svg {
+    height: 2rem;
+  }
+}

@@ -1,0 +1,21 @@
+:root {
+  color-scheme: light dark;
+}
+
+body {
+  background-color: rgb(245, 230, 200);
+}
+
+.menu-button {
+  cursor: pointer;
+  border: #00b2d1 solid 1px;
+  border-bottom: #00b2d1 solid 4px;
+  border-right: #00b2d1 solid 4px;
+  display: flex;
+  align-items: center;
+}
+.menu-button svg {
+  height: 2rem;
+}
+
+/*# sourceMappingURL=main.css.map */
