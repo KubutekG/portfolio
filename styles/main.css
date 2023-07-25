@@ -7,15 +7,31 @@ body {
 }
 
 .menu-button {
+  position: absolute;
+  background-color: transparent;
+  color: #00879f;
+  right: 4rem;
+  top: 2rem;
+  gap: 1rem;
   cursor: pointer;
-  border: #00b2d1 solid 1px;
-  border-bottom: #00b2d1 solid 4px;
-  border-right: #00b2d1 solid 4px;
+  font-size: 1rem;
+  border: #00879f solid 1px;
+  border-bottom: #00879f solid 4px;
+  border-right: #00879f solid 4px;
   display: flex;
   align-items: center;
+  background: linear-gradient(to bottom, transparent 50%, #00879f 50%);
+  background-size: 100% 200%;
+  background-position: top;
+  transition: 0.25s ease-out;
 }
 .menu-button svg {
   height: 2rem;
+}
+
+.menu-button:hover {
+  color: white;
+  background-position: bottom;
 }
 
 /*# sourceMappingURL=main.css.map */
