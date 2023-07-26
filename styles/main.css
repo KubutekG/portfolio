@@ -6,7 +6,7 @@ body {
   background-color: rgb(245, 230, 200);
   padding: 0;
   margin: 0;
-  height: 200vh;
+  height: 400vh;
   overflow-x: hidden;
 }
 
@@ -33,13 +33,15 @@ body {
   height: 2rem;
 }
 
-.intro,
-.intro-img-wrap {
+.intro {
   display: flex;
   justify-content: center;
+  position: relative;
 }
 
 .intro-img-wrap {
+  margin: auto;
+  top: 0;
   height: 100vh;
   width: 100vw;
   transform: translate(0px, 0px) scale(1);

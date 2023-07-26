@@ -27,9 +27,21 @@ function App() {
         if (img_position > 0){
           img.current.style.objectPosition = `0px ${img_position -= IMG_POS_SPEED}%`
         }
-        if (scale.toFixed(1) === '0.7' && width === 40) {
-          console.log('aha')
+        if (scale.toFixed(1) === '0.7' && width === 40 && wrap_position < 80) {
           wrap.current.style.transform = `translate(0px, ${wrap_position += WRAP_POS_SPEED}px)`
+        }
+      } else {
+        if (scale >= 0.7 && scale < 1){
+          wrap.current.style.transform = `scale(${(scale += SCALE_SPEED)})`;
+        }
+        if (width >= 40 && width < 100){
+          wrap.current.style.width = `${width += WIDTH_SPEED}%`
+        }
+        if (img_position >= 0 && img_position < 50){
+          img.current.style.objectPosition = `0px ${img_position += IMG_POS_SPEED}%`
+        }
+        if (wrap_position > 0) {
+          wrap.current.style.transform = `translate(0px, ${wrap_position -= WRAP_POS_SPEED}px)`
         }
       }
     }
