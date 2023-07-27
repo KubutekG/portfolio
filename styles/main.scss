@@ -1,6 +1,7 @@
 @import "globals";
 :root {
   color-scheme: light dark;
+  scroll-behavior: smooth;
 }
 body {
   background-color: $bg-light;
@@ -39,11 +40,11 @@ body {
 }
 .intro-img-wrap {
   margin: auto;
-  top: 0;
-  height: 100vh;
-  width: 100vw;
+  position: fixed;
+  height: 100dvh;
+  width: 100dvw;
   transform: translate(0px, 0px) scale(1);
-  transition: 1.25s ease-out;
+  transition: width height 10s
 }
 .intro-img {
   width: 100%;
@@ -51,7 +52,6 @@ body {
   object-fit: cover;
   object-position: 0px 50%;
   transform: translate(0px, 0px) scale(1);
-  transition: 1.25s ease-out;
 }
 .menu-button:hover {
   color: white;
