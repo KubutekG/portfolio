@@ -1,27 +1,38 @@
 /* import { useTranslation } from "react-i18next"; */
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "../styles/main.css";
 
 function App() {
   /* const { t } = useTranslation(); */
-  const wrap = useRef(null)
+  const wrap = useRef<HTMLDivElement>(null)
+  const [distanceFromTop, setDistanceFromTop] = useState(window.scrollY) 
   let height = 100
   let width = 100
-  const WIDTH_SPEED = 3
-  const HEIGHT_SPEED = 1
+  const WIDTH_SPEED = 4
+  const HEIGHT_SPEED = 2
 
   useEffect(() => {
-    function handleScroll(e: WheelEvent) {
-      if (e.deltaY > 0) {
+    function handleMove(e: Event) {
+      console.log(e)
+      if (e.deltaY > 0 && wrap.current !== null) {
         /* wrap.current.style.transform = `translate(0px, ${wrap_position += WRAP_POS_SPEED}px)`; */
         /* img.current.style.objectPosition = `0px ${img_position -= IMG_POS_SPEED}%` */
-        wrap.current.style.width = `${width -= WIDTH_SPEED}vw`
-        wrap.current.style.height = `${height -= HEIGHT_SPEED}vh`
-        wrap.current.style.margin = `${(100 - height)/8}% ${(100 - width)/2}% ${7 * (100 - height)/8}% ${(100 - width)/2}%`
+        if (width > 34){
+          // eslint-disable-next-line react-hooks/exhaustive-deps
+          wrap.current.style.width = `${width -= WIDTH_SPEED}vw`
+        }
+        if (height > 90){
+          // eslint-disable-next-line react-hooks/exhaustive-deps
+          wrap.current.style.height = `${height -= HEIGHT_SPEED}vh`
+        }
+        if (height > 90){
+          wrap.current.style.margin = `${2 * (100 - height)/8}% ${(100 - width)/2}% ${6 * (100 - height)/8}% ${(100 - width)/2}%`
+        }
       }
     }
-    document.addEventListener("wheel", handleScroll);
-    return () => window.removeEventListener('wheel', handleScroll)
+    document.addEventListener("scroll", handleMove);
+    document
+    return () => window.removeEventListener('scroll', handleMove)
   }, []);
 
   return (

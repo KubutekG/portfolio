@@ -44,13 +44,13 @@ body {
   height: 100dvh;
   width: 100dvw;
   transform: translate(0px, 0px) scale(1);
-  transition: width height 10s
+  transition: 0.2s
 }
 .intro-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 0px 50%;
+  object-position: center center;
   transform: translate(0px, 0px) scale(1);
 }
 .menu-button:hover {
