@@ -5,8 +5,10 @@ import "../styles/main.css";
 function App() {
   /* const { t } = useTranslation(); */
   const wrap = useRef<HTMLDivElement>(null)
+  const img = useRef<HTMLImageElement>(null)
   const [distanceFromTop, setDistanceFromTop] = useState(window.scrollY) 
   const width = useRef(100)
+  const height = useRef(100)
 
   useEffect(() => {
     function handleMove() {
@@ -19,9 +21,20 @@ function App() {
     return () => window.removeEventListener('scroll', handleMove)
   }, []);
   useEffect(() => {
-    if (wrap.current !== null) {
-      if(distanceFromTop < 1000 && 100 - (distanceFromTop/12) > 34){
-        wrap.current.style.width = `${width.current = 100 - (distanceFromTop/12)}vw`
+    if (wrap.current !== null && img.current !== null) {
+      if(distanceFromTop <= 800 && 100 - (distanceFromTop/12) > 34){
+        wrap.current.style.width = `${width.current = +(100 - (distanceFromTop/12)).toFixed(0)}vw`
+        wrap.current.style.height = `${height.current = +(100 - (distanceFromTop/60)).toFixed(0)}vh`
+        wrap.current.style.margin = `${1 * (100 - height.current)/8}% ${(100 - width.current)/2}% ${1 * (100 - height.current)/8}% ${(100 - width.current)/2}%`
+      } else if(distanceFromTop >= 900) {
+        wrap.current.style.position = 'absolute'
+        wrap.current.style.top = `900px`
+        wrap.current.style.left = '0'
+        img.current.style.objectPosition = `50% ${50 - distanceFromTop/50}%`
+      } else if(distanceFromTop <= 900) {
+        wrap.current.style.position = 'fixed'
+        wrap.current.style.top = `0`
+        wrap.current.style.left = '0'
       }
     }
   },[distanceFromTop])
@@ -46,7 +59,7 @@ function App() {
       </button>
       <section className="intro">
         <div className="intro-img-wrap" ref={wrap}>
-          <img src="/public/dummy.jpg" className="intro-img"/>
+          <img src="/public/dummy.jpg" className="intro-img" ref={img}/>
         </div>
       </section>
     </main>

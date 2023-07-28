@@ -41,20 +41,18 @@ body {
 }
 
 .intro-img-wrap {
-  margin: auto;
   position: fixed;
-  height: 100dvh;
-  width: 100dvw;
-  transform: translate(0px, 0px) scale(1);
-  transition: 0.2s;
+  height: 100vh;
+  width: 100vw;
+  transition: margin width height 0.1s;
 }
 
 .intro-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center center;
-  transform: translate(0px, 0px) scale(1);
+  object-position: 50% 32%;
+  transition: 0.25s;
 }
 
 .menu-button:hover {
