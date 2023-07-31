@@ -78,10 +78,13 @@ body {
     text-align: right;
   }
   h2 {
+    text-align: center;
     grid-area: title;
   }
   p {
     grid-area: p;
+    text-align: left;
+    font-size: 1.5rem;
   }
   button {
     grid-area: button;

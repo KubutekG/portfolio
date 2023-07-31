@@ -95,12 +95,9 @@ function App() {
         <div className="intro-text-wrap">
           <h1>Jakub Giedzicz</h1>
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit,
-            nihil sit, aut nulla eligendi pariatur magni ducimus repudiandae
-            quaerat qui vel tempora cupiditate tenetur rerum. Eum a natus
-            veritatis tempore quam, cum quo impedit consequuntur facilis totam
-            placeat sit debitis sapiente rerum illo et similique architecto
-            ipsam! Nisi, neque unde.
+            TypeScript? React? Of course I know them - I use them daily.
+            Backend too, as long as we're talking about Node or Django.
+            Version control? I prefer GitHub
           </p>
           <button>aha</button>
           <h2>Fullstack Web Developer</h2>

@@ -81,10 +81,13 @@ body {
   text-align: right;
 }
 .intro-text-wrap h2 {
+  text-align: center;
   grid-area: title;
 }
 .intro-text-wrap p {
   grid-area: p;
+  text-align: left;
+  font-size: 1.5rem;
 }
 .intro-text-wrap button {
   grid-area: button;
