@@ -57,43 +57,64 @@ body {
 }
 .intro-text-wrap {
   position: absolute;
+  display: flex;
+  flex-direction: column;
   top: 0;
   left: 0;
-  margin: 15% 5% ;
-  display: grid;
-  grid-template-columns: 45vw 45vw;
-  grid-template-rows: 20vh 20vh 20vh;
-  grid-template-areas: 
-                    "name p"
-                    "name button"
-                    "title title";
-  column-gap: 1rem;
-  h1, h2 {
-    font-family: 'Lato', sans-serif;
-    margin: 0;
-    font-size: 9rem;
-  }
+  margin: 15% 5%;
+}
+.name-intro {
+  width: 45%;
   h1 {
-    grid-area: name;
+    font-family: 'Lato', sans-serif;
     text-align: right;
+    margin: 0;
+    font-size: 7.5vw;
   }
-  h2 {
-    text-align: center;
-    grid-area: title;
-  }
+}
+.name-intro-text-wrap {
+  display: flex;
+  flex-direction: row;
+  gap: 5%;
+}
+.text-button-wrap {
+  width: 30%;
   p {
-    grid-area: p;
-    text-align: left;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
-  button {
-    grid-area: button;
-  }
-  button {
-    max-width: 4rem;
-    max-height: 2rem;
+}
+.title {
+  margin-top: 2%;
+  h2 {
+    font-size: 7vw;
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    text-align: center;
   }
 }
 @media (prefers-color-scheme: dark) {
 
+}
+@media (max-width: 999px) {
+  .name-intro-text-wrap {
+    flex-direction: column;
+    margin-top: 10%;
+  }
+  .name-intro {
+    width: 100%;
+    h1::after {
+      display: block;
+      content: "Fullstack Web Developer";
+      font-size: 5vw;
+    }
+  }
+  .title {
+    display: none;
+  }
+  .text-button-wrap {
+    width: 100%;
+    button {
+      display: none;
+    }
+  }
 }

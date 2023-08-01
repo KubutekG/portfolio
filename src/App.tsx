@@ -93,14 +93,23 @@ function App() {
           <img src="/public/dummy.jpg" className="intro-img" ref={img} />
         </div>
         <div className="intro-text-wrap">
-          <h1>Jakub Giedzicz</h1>
-          <p>
-            TypeScript? React? Of course I know them - I use them daily.
-            Backend too, as long as we're talking about Node or Django.
-            Version control? I prefer GitHub
-          </p>
-          <button>aha</button>
-          <h2>Fullstack Web Developer</h2>
+          <div className="name-intro-text-wrap">
+            <div className="name-intro">
+              <h1>Jakub Giedzicz</h1>
+            </div>
+            <div className="text-button-wrap">
+              <p>
+                TypeScript? React? Of course I know them - I use them daily.
+                Backend too, as long as we're talking about Node or Django.
+                When it comes to version control I'd say GitHub. Visit this page on mobile device
+                or use dev tools to experience my way of Responsive Web Design
+              </p>
+              <button>aha</button>
+            </div>
+          </div>
+          <div className="title">
+              <h2>Fullstack Web Developer</h2>
+            </div>
         </div>
       </section>
     </main>
@@ -108,3 +117,6 @@ function App() {
 }
 
 export default App;
+/* <h1>Jakub Giedzicz</h1>
+          
+          <h2>Fullstack Web Developer</h2> */
