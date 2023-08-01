@@ -86,12 +86,39 @@ body {
 .title {
   margin-top: 2%;
   h2 {
-    font-size: 7vw;
+    font-size: 7.5vw;
     margin: 0;
     font-family: 'Lato', sans-serif;
     text-align: center;
   }
 }
+.button-wrap {
+  position: relative;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  .button {
+    position: absolute;
+  }
+  #btn-1 {
+    svg {
+      animation: Spin 2.6s infinite linear;
+    }
+  }
+  #btn-2 {
+    svg {
+      animation: Spin 2.5s infinite linear;
+    }
+  }
+}
+.button-wrap:hover {
+  #btn-1 svg,
+  #btn-2 svg {
+    display: none;
+    animation: paused;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
 
 }
@@ -113,8 +140,17 @@ body {
   }
   .text-button-wrap {
     width: 100%;
-    button {
-      display: none;
-    }
   }
+}
+@-moz-keyframes Spin {
+  from { -moz-transform: rotate(0deg); }
+  to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes Spin {
+  from { -webkit-transform: rotate(0deg); }
+  to { -webkit-transform: rotate(360deg); }
+}
+@keyframes Spin {
+  from {transform:rotate(0deg);}
+  to {transform:rotate(360deg);}
 }

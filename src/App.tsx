@@ -100,16 +100,58 @@ function App() {
             <div className="text-button-wrap">
               <p>
                 TypeScript? React? Of course I know them - I use them daily.
-                Backend too, as long as we're talking about Node or Django.
-                When it comes to version control I'd say GitHub. Visit this page on mobile device
-                or use dev tools to experience my way of Responsive Web Design
+                Backend too, as long as we're talking about Node or Django. When
+                it comes to version control I'd say GitHub. Visit this page on
+                mobile device or use dev tools to experience my way of
+                Responsive Web Design
               </p>
-              <button>aha</button>
+              <div className="button-wrap">
+                <div className="button" id="btn-1">
+                  <svg
+                    width="150px"
+                    height="150px"
+                    viewBox="-9 -9 18 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g id="SVGRepo_iconCarrier">
+                      <path
+                        d="M 9 0 C 9 5 5 9 0 9 C -5 9 -9 5 -9 0 C -9 -5 -5 -9 0 -9 C 5 -9 9 -5 9 0 Z"
+                        stroke="#ffffff"
+                        strokeWidth="0.2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeDasharray="4 4"
+                      ></path>
+                    </g>
+                  </svg>
+                </div>
+                <div className="button" id="btn-2">
+                  <svg
+                    width="150px"
+                    height="150px"
+                    viewBox="-9 -9 18 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g id="SVGRepo_iconCarrier">
+                      <path
+                        d="M 9 0 C 9 5 5 9 0 9 C -5 9 -9 5 -9 0 C -9 -5 -5 -9 0 -9 C 5 -9 9 -5 9 0 Z"
+                        stroke="#ffffff"
+                        strokeWidth="0.2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeDasharray="4 4"
+                      ></path>
+                    </g>
+                  </svg>
+                </div>
+              </div>
             </div>
           </div>
           <div className="title">
-              <h2>Fullstack Web Developer</h2>
-            </div>
+            <h2>Fullstack Web Developer</h2>
+          </div>
         </div>
       </section>
     </main>
