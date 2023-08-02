@@ -94,8 +94,9 @@ function App() {
         </div>
         <div className="intro-text-wrap">
           <div className="name-intro-text-wrap">
-            <div className="name-intro">
+            <div className="name-intro-title-wrap">
               <h1>Jakub Giedzicz</h1>
+              <h2>Fullstack Web Developer</h2>
             </div>
             <div className="text-button-wrap">
               <p>
@@ -108,9 +109,9 @@ function App() {
               <div className="button-wrap">
                 <div className="button" id="btn-1">
                   <svg
-                    width="150px"
-                    height="150px"
-                    viewBox="-9 -9 18 18"
+                    width="50px"
+                    height="50px"
+                    viewBox="-10 -10 20 20"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -118,7 +119,7 @@ function App() {
                       <path
                         d="M 9 0 C 9 5 5 9 0 9 C -5 9 -9 5 -9 0 C -9 -5 -5 -9 0 -9 C 5 -9 9 -5 9 0 Z"
                         stroke="#ffffff"
-                        strokeWidth="0.2"
+                        strokeWidth="0.6"
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         strokeDasharray="4 4"
@@ -128,16 +129,16 @@ function App() {
                 </div>
                 <div className="button" id="btn-2">
                   <svg
-                    width="150px"
-                    height="150px"
-                    viewBox="-9 -9 18 18"
+                    width="50px"
+                    height="50px"
+                    viewBox="-10 -10 20 20"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <g id="SVGRepo_iconCarrier">
                       <path
                         d="M 9 0 C 9 5 5 9 0 9 C -5 9 -9 5 -9 0 C -9 -5 -5 -9 0 -9 C 5 -9 9 -5 9 0 Z"
-                        stroke="#ffffff"
+                        stroke="#000000"
                         strokeWidth="0.2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -149,9 +150,6 @@ function App() {
               </div>
             </div>
           </div>
-          <div className="title">
-            <h2>Fullstack Web Developer</h2>
-          </div>
         </div>
       </section>
     </main>
@@ -159,6 +157,3 @@ function App() {
 }
 
 export default App;
-/* <h1>Jakub Giedzicz</h1>
-          
-          <h2>Fullstack Web Developer</h2> */
