@@ -118,7 +118,7 @@ function App() {
                     <g id="SVGRepo_iconCarrier">
                       <path
                         d="M 9 0 C 9 5 5 9 0 9 C -5 9 -9 5 -9 0 C -9 -5 -5 -9 0 -9 C 5 -9 9 -5 9 0 Z"
-                        stroke="#ffffff"
+                        stroke="#00879f"
                         strokeWidth="0.6"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -138,11 +138,28 @@ function App() {
                     <g id="SVGRepo_iconCarrier">
                       <path
                         d="M 9 0 C 9 5 5 9 0 9 C -5 9 -9 5 -9 0 C -9 -5 -5 -9 0 -9 C 5 -9 9 -5 9 0 Z"
-                        stroke="#000000"
-                        strokeWidth="0.2"
+                        stroke="#ffffff"
+                        strokeWidth="0.4"
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         strokeDasharray="4 4"
+                      ></path>
+                    </g>
+                  </svg>
+                </div>
+                <div className="arrow">
+                  <svg
+                    fill="#00879f"
+                    height="64px"
+                    width="64px"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="-90 -165 180 330"
+                    stroke="#000000"
+                    stroke-width="0.0033"
+                  >
+                    <g>
+                      <path
+                        d="M 88.858 69.26 c -2.321 -5.605 -7.791 -9.26 -13.857 -9.26 h -60 V -150 c 0 -8.284 -6.717 -15 -15 -15 c -8.285 0 -15 6.716 -15 15 v 210 H -75 c -6.067 0 -11.537 3.655 -13.859 9.26 c -2.32 5.605 -1.037 12.057 3.252 16.347 l 75 75 C -7.677 163.536 -3.84 165 0 165 c 3.838 0 7.678 -1.464 10.605 -4.394 l 75 -75 C 89.897 81.316 91.18 74.865 88.858 69.26 z"
                       ></path>
                     </g>
                   </svg>
