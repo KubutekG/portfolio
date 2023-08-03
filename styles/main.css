@@ -1,6 +1,7 @@
 :root {
   color-scheme: light dark;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -44,7 +45,8 @@ body {
   position: fixed;
   height: 100vh;
   width: 100vw;
-  transition: margin width height 0.1s;
+  transition: 0.1s;
+  transition: position 0s;
 }
 
 .intro-img {
@@ -52,7 +54,7 @@ body {
   height: 100%;
   object-fit: cover;
   object-position: 50% 32%;
-  transition: 0.25s;
+  transition: 0.1s;
 }
 
 .menu-button:hover {
@@ -77,83 +79,104 @@ body {
 .name-intro-title-wrap h2 {
   font-size: clamp(5vh, 5rem, 5vw);
 }
-.name-intro-title-wrap h1, .name-intro-title-wrap h2 {
+.name-intro-title-wrap h1,
+.name-intro-title-wrap h2 {
   margin: 0;
   font-family: "Lato", sans-serif;
   padding-top: 1rem;
 }
 
-.text-button-wrap {
+.text-p-wrap {
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
   gap: 5%;
 }
-.text-button-wrap p {
+.text-p-wrap p {
   width: 60%;
   font-size: clamp(2.5vh, 2rem, 2vw);
 }
 
-.button-wrap {
-  position: relative;
-  height: calc(5vh + 5vw);
-  width: calc(5vh + 5vw);
-  border-radius: 50%;
-}
-.button-wrap .button {
-  width: 100%;
-  height: 100%;
+.bg-flying-text-wrap {
+  z-index: -1;
   position: absolute;
-  cursor: pointer;
+  top: 140vh;
+  left: 0;
 }
-.button-wrap #btn-1 svg {
-  height: 100%;
-  width: 100%;
-  animation: Spin 5s infinite linear;
-}
-.button-wrap #btn-2 svg {
-  height: 100%;
-  width: 100%;
-  animation: Spin 5s infinite linear;
-}
-.button-wrap .arrow {
-  position: absolute;
-  width: 100%;
-  height: 100%;
+
+.row-1 {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
 }
 
-.button-wrap:hover #btn-1 svg,
-.button-wrap:hover #btn-2 svg {
+.transparent-flying {
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #00879f;
+}
+
+.color-flying {
+  color: #00879f;
+}
+
+.transparent-flying,
+.color-flying {
+  font-family: "Lato", sans-serif;
+  text-transform: uppercase;
+  font-size: 6rem;
+  white-space: nowrap;
+  display: block;
+}
+
+.part-1 {
+  animation: Move 4s infinite linear;
+}
+
+.part-2 {
+  animation: Move2 8s infinite linear;
+}
+
+.part-3 {
   display: none;
-  animation: paused;
 }
 
-@-moz-keyframes Spin {
+@-moz-keyframes Move {
   from {
-    -moz-transform: rotate(0deg);
+    -moz-transform: rotate(10deg) translate(-100%);
   }
   to {
-    -moz-transform: rotate(360deg);
+    -moz-transform: rotate(10deg) translate(100%);
   }
 }
-@-webkit-keyframes Spin {
+@-webkit-keyframes Move {
   from {
-    -webkit-transform: rotate(0deg);
+    -webkit-transform: translate(-100vw);
   }
   to {
-    -webkit-transform: rotate(360deg);
+    -webkit-transform: translate(100vw);
   }
 }
-@keyframes Spin {
+@keyframes Move {
   from {
-    transform: rotate(0deg);
+    transform: translate(-100%);
   }
   to {
-    transform: rotate(360deg);
+    transform: translate(126%);
+  }
+}
+@keyframes Move2 {
+  from {
+    transform: translate(-326%);
+  }
+  to {
+    transform: translate(126%);
+  }
+}
+@keyframes Move3 {
+  from {
+    transform: translate(-526%);
+  }
+  to {
+    transform: translate(126%);
   }
 }
 

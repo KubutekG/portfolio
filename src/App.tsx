@@ -98,7 +98,7 @@ function App() {
               <h1>Jakub Giedzicz</h1>
               <h2>Fullstack Web Developer</h2>
             </div>
-            <div className="text-button-wrap">
+            <div className="text-p-wrap">
               <p>
                 TypeScript? React? Of course I know them - I use them daily.
                 Backend too, as long as we're talking about Node or Django. When
@@ -106,66 +106,14 @@ function App() {
                 mobile device or use dev tools to experience my way of
                 Responsive Web Design
               </p>
-              <div className="button-wrap">
-                <div className="button" id="btn-1">
-                  <svg
-                    width="50px"
-                    height="50px"
-                    viewBox="-10 -10 20 20"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g id="SVGRepo_iconCarrier">
-                      <path
-                        d="M 9 0 C 9 5 5 9 0 9 C -5 9 -9 5 -9 0 C -9 -5 -5 -9 0 -9 C 5 -9 9 -5 9 0 Z"
-                        stroke="#00879f"
-                        strokeWidth="0.6"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeDasharray="4 4"
-                      ></path>
-                    </g>
-                  </svg>
-                </div>
-                <div className="button" id="btn-2">
-                  <svg
-                    width="50px"
-                    height="50px"
-                    viewBox="-10 -10 20 20"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g id="SVGRepo_iconCarrier">
-                      <path
-                        d="M 9 0 C 9 5 5 9 0 9 C -5 9 -9 5 -9 0 C -9 -5 -5 -9 0 -9 C 5 -9 9 -5 9 0 Z"
-                        stroke="#ffffff"
-                        strokeWidth="0.4"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeDasharray="4 4"
-                      ></path>
-                    </g>
-                  </svg>
-                </div>
-                <div className="arrow">
-                  <svg
-                    fill="#00879f"
-                    height="64px"
-                    width="64px"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="-90 -165 180 330"
-                    stroke="#000000"
-                    stroke-width="0.0033"
-                  >
-                    <g>
-                      <path
-                        d="M 88.858 69.26 c -2.321 -5.605 -7.791 -9.26 -13.857 -9.26 h -60 V -150 c 0 -8.284 -6.717 -15 -15 -15 c -8.285 0 -15 6.716 -15 15 v 210 H -75 c -6.067 0 -11.537 3.655 -13.859 9.26 c -2.32 5.605 -1.037 12.057 3.252 16.347 l 75 75 C -7.677 163.536 -3.84 165 0 165 c 3.838 0 7.678 -1.464 10.605 -4.394 l 75 -75 C 89.897 81.316 91.18 74.865 88.858 69.26 z"
-                      ></path>
-                    </g>
-                  </svg>
-                </div>
-              </div>
             </div>
+          </div>
+        </div>
+        <div className="bg-flying-text-wrap">
+          <div className="row-1">
+            <div className="transparent-flying part-1">Lorem ipsum dolor sit amet *</div>
+            <div className="color-flying part-2">Lorem ipsum dolor sit amet *</div>
+            <div className="transparent-flying part-3">Lorem ipsum dolor sit amet *</div>
           </div>
         </div>
       </section>
