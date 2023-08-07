@@ -1,6 +1,7 @@
 /* import { useTranslation } from "react-i18next"; */
 import { useEffect, useRef, useState } from "react";
 import "../styles/main.css";
+import MarqueeElement from "./components/MarqueeElement";
 
 function App() {
   /* const { t } = useTranslation(); */
@@ -52,22 +53,25 @@ function App() {
     }
     document.addEventListener("scroll", handleMove);
     setWrapSize();
-    if (distanceFromTop > 900) {
-      setWrapImgPosition(true, "absolute", "900px");
+    if (distanceFromTop > 800) {
+      setWrapImgPosition(true, "absolute", "800px");
     }
 
     return () => window.removeEventListener("scroll", handleMove);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   useEffect(() => {
     if (wrap.current !== null && img.current !== null) {
       if (distanceFromTop <= 800 && 100 - distanceFromTop / 12 > 34) {
         setWrapSize();
-      } else if (distanceFromTop >= 900) {
-        setWrapImgPosition(true, "absolute", "900px");
-      } else if (distanceFromTop <= 900) {
+      } else if (distanceFromTop >= 800) {
+        setWrapImgPosition(true, "absolute", "800px");
+      } else if (distanceFromTop <= 800) {
         setWrapImgPosition(false, "fixed", "0px");
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [distanceFromTop]);
 
   return (
@@ -112,36 +116,49 @@ function App() {
         <div className="marquee-wrap">
           <div className="marquee">
             <ul className="marquee_content left">
-              <li className="transparent">Lorem ipsum dolor sit amet *</li>
-              <li className="color">Lorem ipsum dolor sit amet *</li>
+              <MarqueeElement style="transparent" content="react" />
+              <MarqueeElement style="color" content="typescript" />
+              <MarqueeElement style="transparent" content="scss" />
+              <MarqueeElement style="color" content="rwd" />
             </ul>
             <ul aria-hidden="true" className="marquee_content left">
-              <li className="transparent">Lorem ipsum dolor sit amet *</li>
-              <li className="color">Lorem ipsum dolor sit amet *</li>
+              <MarqueeElement style="transparent" content="react" />
+              <MarqueeElement style="color" content="typescript" />
+              <MarqueeElement style="transparent" content="scss" />
+              <MarqueeElement style="color" content="rwd" />
             </ul>
           </div>
           <div className="marquee">
             <ul className="marquee_content right">
-              <li className="color">Lorem ipsum dolor sit amet *</li>
-              <li className="transparent">Lorem ipsum dolor sit amet *</li>
+              <MarqueeElement style="color" content="nodejs" />
+              <MarqueeElement style="transparent" content="express" />
+              <MarqueeElement style="color" content="mongo" />
+              <MarqueeElement style="transparent" content="rest api" />
             </ul>
             <ul aria-hidden="true" className="marquee_content right">
-              <li className="color">Lorem ipsum dolor sit amet *</li>
-              <li className="transparent">Lorem ipsum dolor sit amet *</li>
+              <MarqueeElement style="color" content="nodejs" />
+              <MarqueeElement style="transparent" content="express" />
+              <MarqueeElement style="color" content="mongo" />
+              <MarqueeElement style="transparent" content="rest api" />
             </ul>
           </div>
           <div className="marquee">
             <ul className="marquee_content left">
-              <li className="color">Lorem ipsum dolor sit amet *</li>
-              <li className="transparent">Lorem ipsum dolor sit amet *</li>
+              <MarqueeElement style="color" content="github" />
+              <MarqueeElement style="transparent" content="clean code" />
+              <MarqueeElement style="color" content="testing" />
+              <MarqueeElement style="transparent" content="optimization" />
             </ul>
             <ul aria-hidden="true" className="marquee_content left">
-              <li className="color">Lorem ipsum dolor sit amet *</li>
-              <li className="transparent">Lorem ipsum dolor sit amet *</li>
+              <MarqueeElement style="color" content="github" />
+              <MarqueeElement style="transparent" content="clean code" />
+              <MarqueeElement style="color" content="testing" />
+              <MarqueeElement style="transparent" content="optimization" />
             </ul>
           </div>
         </div>
       </section>
+      <section className="description"></section>
     </main>
   );
 }

@@ -2,13 +2,13 @@
   color-scheme: light dark;
   scroll-behavior: smooth;
   overflow-x: hidden;
+  font-family: "Lato", sans-serif;
 }
 
 body {
   background-color: rgb(245, 230, 200);
   padding: 0;
   margin: 0;
-  height: 400vh;
   overflow-x: hidden;
 }
 
@@ -82,7 +82,6 @@ body {
 .name-intro-title-wrap h1,
 .name-intro-title-wrap h2 {
   margin: 0;
-  font-family: "Lato", sans-serif;
   padding-top: 1rem;
 }
 
@@ -99,7 +98,7 @@ body {
 
 .marquee-wrap {
   position: absolute;
-  top: 90vh;
+  top: 110vh;
   left: 0;
   z-index: -1;
   width: 100%;
@@ -150,6 +149,12 @@ body {
   white-space: nowrap;
   display: block;
   padding: 0.5rem 0;
+}
+
+.description {
+  background-color: #00879f;
+  margin-top: 190vh;
+  height: 50vh;
 }
 
 @media (prefers-reduced-motion: reduce) {
