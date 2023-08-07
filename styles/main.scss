@@ -144,14 +144,6 @@ body {
     animation-play-state: paused !important;
   }
 }
-@-moz-keyframes Move {
-  from {
-    -moz-transform: rotate(10deg) translate(-100%);
-  }
-  to {
-    -moz-transform: rotate(10deg) translate(100%);
-  }
-}
 @keyframes scrollRight {
   from {
     transform: translateX(calc(-100% - var(--gap)));
