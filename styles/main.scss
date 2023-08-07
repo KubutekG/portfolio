@@ -89,42 +89,60 @@ body {
     font-size: clamp(2.5vh, 2rem, 2vw);
   }
 }
-.bg-flying-text-wrap {
-  z-index: -1;
+.marquee-wrap {
   position: absolute;
-  top: calc(140vh);
+  top: 90vh;
   left: 0;
+  z-index: -1;
+  width: 100%;
+  height: auto;
 }
-.row-1 {
+.marquee {
+  --gap: 1rem;
   display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: var(--gap);
+  width: 100%;
 }
-.transparent-flying {
+.marquee_content {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-around;
+  gap: var(--gap);
+  min-width: 100%;
+  transform: rotate(-10deg);
+}
+.right {
+  animation: scrollLeft 10s linear infinite;
+}
+.left {
+  animation: scrollRight 10s linear infinite;
+}
+.transparent {
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: $react-blue-dark;
 }
-.color-flying {
+.color {
   color: $react-blue-dark;
 }
-.transparent-flying,
-.color-flying {
+.transparent,
+.color {
   font-family: "Lato", sans-serif;
   text-transform: uppercase;
   font-size: 6rem;
   white-space: nowrap;
   display: block;
-}
-.part-1 {
-  animation: Move 4s infinite linear;
-}
-.part-2 {
-  animation: Move2 8s infinite linear;
-}
-.part-3 {
-  display: none;
+  padding: 0.5rem 0;
 }
 
 @media (prefers-color-scheme: dark) {
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee__content {
+    animation-play-state: paused !important;
+  }
 }
 @-moz-keyframes Move {
   from {
@@ -134,35 +152,19 @@ body {
     -moz-transform: rotate(10deg) translate(100%);
   }
 }
-@-webkit-keyframes Move {
+@keyframes scrollRight {
   from {
-    -webkit-transform: translate(-100vw);
+    transform: translateX(calc(-100% - var(--gap)));
   }
   to {
-    -webkit-transform: translate(100vw);
+    transform: translateX(0);
   }
 }
-@keyframes Move {
+@keyframes scrollLeft {
   from {
-    transform: translate(-100%);
+    transform: translateX(0);
   }
   to {
-    transform:  translate(126%);
-  }
-}
-@keyframes Move2 {
-  from {
-    transform: translate(-326%);
-  }
-  to {
-    transform:  translate(126%);
-  }
-}
-@keyframes Move3 {
-  from {
-    transform: translate(-526%);
-  }
-  to {
-    transform: translate(126%);
+    transform: translateX(calc(-100% - var(--gap)));
   }
 }

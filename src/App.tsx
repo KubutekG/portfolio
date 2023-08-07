@@ -109,11 +109,36 @@ function App() {
             </div>
           </div>
         </div>
-        <div className="bg-flying-text-wrap">
-          <div className="row-1">
-            <div className="transparent-flying part-1">Lorem ipsum dolor sit amet *</div>
-            <div className="color-flying part-2">Lorem ipsum dolor sit amet *</div>
-            <div className="transparent-flying part-3">Lorem ipsum dolor sit amet *</div>
+        <div className="marquee-wrap">
+          <div className="marquee">
+            <ul className="marquee_content left">
+              <li className="transparent">Lorem ipsum dolor sit amet *</li>
+              <li className="color">Lorem ipsum dolor sit amet *</li>
+            </ul>
+            <ul aria-hidden="true" className="marquee_content left">
+              <li className="transparent">Lorem ipsum dolor sit amet *</li>
+              <li className="color">Lorem ipsum dolor sit amet *</li>
+            </ul>
+          </div>
+          <div className="marquee">
+            <ul className="marquee_content right">
+              <li className="color">Lorem ipsum dolor sit amet *</li>
+              <li className="transparent">Lorem ipsum dolor sit amet *</li>
+            </ul>
+            <ul aria-hidden="true" className="marquee_content right">
+              <li className="color">Lorem ipsum dolor sit amet *</li>
+              <li className="transparent">Lorem ipsum dolor sit amet *</li>
+            </ul>
+          </div>
+          <div className="marquee">
+            <ul className="marquee_content left">
+              <li className="color">Lorem ipsum dolor sit amet *</li>
+              <li className="transparent">Lorem ipsum dolor sit amet *</li>
+            </ul>
+            <ul aria-hidden="true" className="marquee_content left">
+              <li className="color">Lorem ipsum dolor sit amet *</li>
+              <li className="transparent">Lorem ipsum dolor sit amet *</li>
+            </ul>
           </div>
         </div>
       </section>
