@@ -6,7 +6,7 @@ const LanguageSelector = () => {
     const [selectedLanguage, setSelectedLanguage] = useState(i18n.language);
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const chooseLanguage = (e: any) => {
+    const chooseLanguage = (e) => {
         e.preventDefault();
         i18n.changeLanguage(e?.target?.value);
         setSelectedLanguage(e?.target?.value);
