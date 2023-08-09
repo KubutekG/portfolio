@@ -36,9 +36,8 @@ function App() {
       }% ${(1 * (100 - height.current)) / 8}% ${(100 - width.current) / 2}%`;
     }
   }
-  function setWrapImgPosition(setImg: boolean, type: string, top: string) {
+  function setWrapImgPosition(setImg: boolean, top: string) {
     if (wrap.current !== null && img.current !== null) {
-      wrap.current.style.position = type;
       wrap.current.style.top = top;
       if (setImg) {
         img.current.style.objectPosition = `50% ${50 - distanceFromTop / 50}%`;
@@ -51,7 +50,6 @@ function App() {
       setDistanceFromTop((_dist) => window.scrollY);
     }
     document.addEventListener("scroll", handleMove);
-    setWrapSize();
     return () => window.removeEventListener("scroll", handleMove);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -59,10 +57,8 @@ function App() {
   useEffect(() => {
     if (wrap.current !== null && img.current !== null) {
       setWrapSize();
-      if (window.scrollY >= 900) {
-        setWrapImgPosition(true, "absolute", "900px");
-      } else {
-        setWrapImgPosition(false, "fixed", "0px");
+      if (distanceFromTop <= 800){
+        setWrapImgPosition(true, `${window.scrollY}px`)
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

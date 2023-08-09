@@ -1,9 +1,9 @@
 {
   "menu": {
     "main": "INTRO",
-    "about": "ABOUT ME",
-    "projects": "PROJECTS",
-    "contact": "CONTACT"
+    "about": "O MNIE",
+    "projects": "PROJEKTY",
+    "contact": "KONTAKT"
   },
   "intro": "TypeScript? React? Oczywiście że je znam - używam ich codziennie. Backend też, a tak dokładniej to Node lub Django. Jeśli chodzi o kontrolę wersji preferuję GitHub. Odwiedź tę stronę na urządzeniu mobilnym lub użyj DevTools by sprawdzić moją kompetencję w tworzeniu responsywnych aplikacji"
 }
