@@ -1,9 +1,9 @@
 {
   "menu": {
-    "main": "WSTĘP",
+    "main": "INTRO",
     "about": "O MNIE",
     "projects": "PROJEKTY",
     "contact": "KONTAKT"
   },
-  "intro": "Trzeci twój komputer, świetnie. Ja złożyłem w życiu może ze 300 ze 400 tych komputerów. To gratuluję ci trzeciego komputera w życiu. Jeszcze więcej popierdol dzieciaku, bo już mnie wkurwiać zaczynasz. To masz bardzo duże doświadczenie. Ja kurwa od siódmego roku życia komputery składam. Żyłem ze składania komputerów ale ty złożyłeś 3 komputery więc * brawa * brawo dla ciebie, polecaj gówno ludziom. Napodkręcałem się troszeczkę pentiumów w życiu. Nawet tego na którym gram mam podkręconego i nie mam żadnych problemów."
+  "intro": "TypeScript? React? Oczywiście że je znam - używam ich codziennie. Backend też, a tak dokładniej to Node lub Django. Jeśli chodzi o kontrolę wersji preferuję GitHub. Odwiedź tę stronę na urządzeniu mobilnym lub użyj DevTools by sprawdzić moją kompetencję w tworzeniu responsywnych aplikacji"
 }
