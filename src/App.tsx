@@ -1,26 +1,26 @@
-/* import { useTranslation } from "react-i18next"; */
+import { useTranslation } from "react-i18next";
 import { useEffect, useRef, useState } from "react";
 import "../styles/main.css";
 import MarqueeElement from "./components/MarqueeElement";
 
 function App() {
-  /* const { t } = useTranslation(); */
+  const { t } = useTranslation();
   const wrap = useRef<HTMLDivElement>(null);
   const img = useRef<HTMLImageElement>(null);
   const [distanceFromTop, setDistanceFromTop] = useState(window.scrollY);
-  const width = useRef(100);
-  const height = useRef(100);
+  const width = useRef(100 - window.scrollY / 12);
+  const height = useRef(100 - window.scrollY / 60);
 
   function setWrapSize() {
     if (wrap.current !== null) {
-      if (100 - distanceFromTop / 12 > 34) {
+      if (100 - distanceFromTop / 12 > 33) {
         wrap.current.style.width = `${(width.current = +(
           100 -
           distanceFromTop / 12
         ).toFixed(0))}vw`;
       } else {
-        wrap.current.style.width = "34vw";
-        width.current = 34;
+        wrap.current.style.width = "33vw";
+        width.current = 33;
       }
       if (100 - distanceFromTop / 60 > 87) {
         wrap.current.style.height = `${(height.current = +(
@@ -36,11 +36,9 @@ function App() {
       }% ${(1 * (100 - height.current)) / 8}% ${(100 - width.current) / 2}%`;
     }
   }
-  function setWrapImgPosition(setImg: boolean, type: string, top: string) {
+  function setWrapImgPosition(setImg: boolean, top: string) {
     if (wrap.current !== null && img.current !== null) {
-      wrap.current.style.position = type;
       wrap.current.style.top = top;
-      wrap.current.style.left = "0";
       if (setImg) {
         img.current.style.objectPosition = `50% ${50 - distanceFromTop / 50}%`;
       }
@@ -52,23 +50,15 @@ function App() {
       setDistanceFromTop((_dist) => window.scrollY);
     }
     document.addEventListener("scroll", handleMove);
-    setWrapSize();
-    if (distanceFromTop > 800) {
-      setWrapImgPosition(true, "absolute", "800px");
-    }
-
     return () => window.removeEventListener("scroll", handleMove);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     if (wrap.current !== null && img.current !== null) {
-      if (distanceFromTop <= 800 && 100 - distanceFromTop / 12 > 34) {
-        setWrapSize();
-      } else if (distanceFromTop >= 800) {
-        setWrapImgPosition(true, "absolute", "800px");
-      } else if (distanceFromTop <= 800) {
-        setWrapImgPosition(false, "fixed", "0px");
+      setWrapSize();
+      if (distanceFromTop <= 800){
+        setWrapImgPosition(true, `${window.scrollY}px`)
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -94,7 +84,7 @@ function App() {
       </button>
       <section className="intro">
         <div className="intro-img-wrap" ref={wrap}>
-          <img src="/public/dummy.jpg" className="intro-img" ref={img} />
+          <img src="/dummy.jpg" className="intro-img" ref={img} />
         </div>
         <div className="intro-text-wrap">
           <div className="name-intro-text-wrap">
@@ -104,11 +94,7 @@ function App() {
             </div>
             <div className="text-p-wrap">
               <p>
-                TypeScript? React? Of course I know them - I use them daily.
-                Backend too, as long as we're talking about Node or Django. When
-                it comes to version control I'd say GitHub. Visit this page on
-                mobile device or use dev tools to experience my way of
-                Responsive Web Design
+              {t("intro")}
               </p>
             </div>
           </div>
@@ -158,10 +144,10 @@ function App() {
           </div>
         </div>
       </section>
-      <section className="description"></section>
+      <section className="description">
+      </section>
     </main>
   );
 }
-
 export default App;
 /*  */

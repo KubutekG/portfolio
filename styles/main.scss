@@ -40,11 +40,13 @@ body {
   position: relative;
 }
 .intro-img-wrap {
-  position: fixed;
+  position: absolute;
+  top: 0;
+  left: 0;
   height: 100vh;
   width: 100vw;
   transition: 0.1s;
-  transition: position 0s;
+  transition: top 0s ease-out;
 }
 .intro-img {
   width: 100%;
