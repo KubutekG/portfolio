@@ -36,13 +36,15 @@ function App() {
       }% ${(1 * (100 - height.current)) / 8}% ${(100 - width.current) / 2}%`;
     }
   }
-  function setWrapImgPosition(setImg: boolean, top: string) {
-    if (wrap.current !== null && img.current !== null) {
+  function setWrapImgPosition(top: string) {
+    if (wrap.current !== null) {
       wrap.current.style.top = top;
-      if (setImg) {
-        img.current.style.objectPosition = `50% ${50 - distanceFromTop / 50}%`;
-      }
     }
+  }
+  function setObjPos () {
+  if (img.current !==  null) {
+    img.current.style.objectPosition = `50% ${50 - distanceFromTop / 50}%`;
+  }
   }
   useEffect(() => {
     function handleMove() {
@@ -58,7 +60,9 @@ function App() {
     if (wrap.current !== null && img.current !== null) {
       setWrapSize();
       if (distanceFromTop <= 800){
-        setWrapImgPosition(true, `${window.scrollY}px`)
+        setWrapImgPosition(`${window.scrollY}px`)
+      } else if (distanceFromTop > 800 && distanceFromTop < 1400) {
+        setObjPos()
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
