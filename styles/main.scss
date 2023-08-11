@@ -35,9 +35,15 @@ body {
   }
 }
 .intro {
+  width: 100%;
+  height: calc(100vh + 800px);
+}
+.intro-wrap {
+  height: 100%;
   display: flex;
   justify-content: center;
   position: relative;
+  align-items: flex-end;
 }
 .intro-img-wrap {
   position: absolute;
@@ -91,9 +97,7 @@ body {
   }
 }
 .marquee-wrap {
-  position: absolute;
-  top: 110vh;
-  left: 0;
+  margin-bottom: 15rem;
   z-index: -1;
   width: 100%;
   height: auto;
@@ -139,7 +143,6 @@ body {
 }
 .description {
   background-color: $react-blue-dark;
-  margin-top: 190vh;
   height: 50vh;
 }
 @media (prefers-color-scheme: dark) {

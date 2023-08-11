@@ -41,10 +41,10 @@ function App() {
       wrap.current.style.top = top;
     }
   }
-  function setObjPos () {
-  if (img.current !==  null) {
-    img.current.style.objectPosition = `50% ${50 - distanceFromTop / 50}%`;
-  }
+  function setObjPos() {
+    if (img.current !== null) {
+      img.current.style.objectPosition = `50% ${50 - distanceFromTop / 50}%`;
+    }
   }
   useEffect(() => {
     function handleMove() {
@@ -59,10 +59,10 @@ function App() {
   useEffect(() => {
     if (wrap.current !== null && img.current !== null) {
       setWrapSize();
-      if (distanceFromTop <= 800){
-        setWrapImgPosition(`${window.scrollY}px`)
+      if (distanceFromTop <= 800) {
+        setWrapImgPosition(`${window.scrollY}px`);
       } else if (distanceFromTop > 800 && distanceFromTop < 1400) {
-        setObjPos()
+        setObjPos();
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -87,69 +87,68 @@ function App() {
         </svg>
       </button>
       <section className="intro">
-        <div className="intro-img-wrap" ref={wrap}>
-          <img src="/dummy.jpg" className="intro-img" ref={img} />
-        </div>
-        <div className="intro-text-wrap">
-          <div className="name-intro-text-wrap">
-            <div className="name-intro-title-wrap">
-              <h1>Jakub Giedzicz</h1>
-              <h2>Fullstack Web Developer</h2>
+        <div className="intro-wrap">
+          <div className="intro-img-wrap" ref={wrap}>
+            <img src="/dummy.jpg" className="intro-img" ref={img} />
+          </div>
+          <div className="intro-text-wrap">
+            <div className="name-intro-text-wrap">
+              <div className="name-intro-title-wrap">
+                <h1>Jakub Giedzicz</h1>
+                <h2>Fullstack Web Developer</h2>
+              </div>
+              <div className="text-p-wrap">
+                <p>{t("intro")}</p>
+              </div>
             </div>
-            <div className="text-p-wrap">
-              <p>
-              {t("intro")}
-              </p>
+          </div>
+          <div className="marquee-wrap">
+            <div className="marquee">
+              <ul className="marquee_content left">
+                <MarqueeElement style="transparent" content="react" />
+                <MarqueeElement style="color" content="typescript" />
+                <MarqueeElement style="transparent" content="scss" />
+                <MarqueeElement style="color" content="rwd" />
+              </ul>
+              <ul aria-hidden="true" className="marquee_content left">
+                <MarqueeElement style="transparent" content="react" />
+                <MarqueeElement style="color" content="typescript" />
+                <MarqueeElement style="transparent" content="scss" />
+                <MarqueeElement style="color" content="rwd" />
+              </ul>
             </div>
-          </div>
-        </div>
-        <div className="marquee-wrap">
-          <div className="marquee">
-            <ul className="marquee_content left">
-              <MarqueeElement style="transparent" content="react" />
-              <MarqueeElement style="color" content="typescript" />
-              <MarqueeElement style="transparent" content="scss" />
-              <MarqueeElement style="color" content="rwd" />
-            </ul>
-            <ul aria-hidden="true" className="marquee_content left">
-              <MarqueeElement style="transparent" content="react" />
-              <MarqueeElement style="color" content="typescript" />
-              <MarqueeElement style="transparent" content="scss" />
-              <MarqueeElement style="color" content="rwd" />
-            </ul>
-          </div>
-          <div className="marquee">
-            <ul className="marquee_content right">
-              <MarqueeElement style="color" content="nodejs" />
-              <MarqueeElement style="transparent" content="express" />
-              <MarqueeElement style="color" content="mongo" />
-              <MarqueeElement style="transparent" content="rest api" />
-            </ul>
-            <ul aria-hidden="true" className="marquee_content right">
-              <MarqueeElement style="color" content="nodejs" />
-              <MarqueeElement style="transparent" content="express" />
-              <MarqueeElement style="color" content="mongo" />
-              <MarqueeElement style="transparent" content="rest api" />
-            </ul>
-          </div>
-          <div className="marquee">
-            <ul className="marquee_content left">
-              <MarqueeElement style="color" content="github" />
-              <MarqueeElement style="transparent" content="clean code" />
-              <MarqueeElement style="color" content="testing" />
-              <MarqueeElement style="transparent" content="optimization" />
-            </ul>
-            <ul aria-hidden="true" className="marquee_content left">
-              <MarqueeElement style="color" content="github" />
-              <MarqueeElement style="transparent" content="clean code" />
-              <MarqueeElement style="color" content="testing" />
-              <MarqueeElement style="transparent" content="optimization" />
-            </ul>
+            <div className="marquee">
+              <ul className="marquee_content right">
+                <MarqueeElement style="color" content="nodejs" />
+                <MarqueeElement style="transparent" content="express" />
+                <MarqueeElement style="color" content="mongo" />
+                <MarqueeElement style="transparent" content="rest api" />
+              </ul>
+              <ul aria-hidden="true" className="marquee_content right">
+                <MarqueeElement style="color" content="nodejs" />
+                <MarqueeElement style="transparent" content="express" />
+                <MarqueeElement style="color" content="mongo" />
+                <MarqueeElement style="transparent" content="rest api" />
+              </ul>
+            </div>
+            <div className="marquee">
+              <ul className="marquee_content left">
+                <MarqueeElement style="color" content="github" />
+                <MarqueeElement style="transparent" content="clean code" />
+                <MarqueeElement style="color" content="testing" />
+                <MarqueeElement style="transparent" content="optimization" />
+              </ul>
+              <ul aria-hidden="true" className="marquee_content left">
+                <MarqueeElement style="color" content="github" />
+                <MarqueeElement style="transparent" content="clean code" />
+                <MarqueeElement style="color" content="testing" />
+                <MarqueeElement style="transparent" content="optimization" />
+              </ul>
+            </div>
           </div>
         </div>
       </section>
-      <section className="description">
-      </section>
+      <section className="description"></section>
     </main>
   );
 }
