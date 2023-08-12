@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useTranslation } from "react-i18next";
 import { useEffect, useRef, useState } from "react";
 import "../styles/main.css";
@@ -7,6 +9,8 @@ function App() {
   const { t } = useTranslation();
   const wrap = useRef<HTMLDivElement>(null);
   const img = useRef<HTMLImageElement>(null);
+  const description_head_text = useRef<HTMLDivElement>(null)
+  const [isDescHeadTextIntersect, setDescHeadIntersect] = useState(false)
   const [distanceFromTop, setDistanceFromTop] = useState(window.scrollY);
   const width = useRef(100 - window.scrollY / 12);
   const height = useRef(100 - window.scrollY / 60);
@@ -48,25 +52,40 @@ function App() {
   }
   useEffect(() => {
     function handleMove() {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       setDistanceFromTop((_dist) => window.scrollY);
     }
     document.addEventListener("scroll", handleMove);
     return () => window.removeEventListener("scroll", handleMove);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setDescHeadIntersect((_i) => entry.isIntersecting);
+      },
+      { threshold: 0.01 }
+    );
+    console.log(isDescHeadTextIntersect)
+    if (description_head_text.current) observer.observe(description_head_text.current)
+    return () => observer.disconnect()
   }, []);
 
   useEffect(() => {
     if (wrap.current !== null && img.current !== null) {
       setWrapSize();
-      if (distanceFromTop <= 800) {
+      if (distanceFromTop < 800) {
         setWrapImgPosition(`${window.scrollY}px`);
       } else if (distanceFromTop > 800 && distanceFromTop < 1400) {
         setObjPos();
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [distanceFromTop]);
+
+  useEffect(() => {
+  if (isDescHeadTextIntersect) {
+    description_head_text.current?.classList.add('slideFromBelow')
+  }
+  }, [isDescHeadTextIntersect])
 
   return (
     <main>
@@ -148,7 +167,12 @@ function App() {
           </div>
         </div>
       </section>
-      <section className="description"></section>
+      <section className="description">
+        <div className="description-head-text" ref={description_head_text}>
+          <h1>This is me.</h1>
+          <h1>A young web developer from Poland, looking for an opportunity.</h1>
+        </div>
+      </section>
     </main>
   );
 }
