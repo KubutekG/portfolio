@@ -54,8 +54,6 @@ body {
   left: 0;
   height: 100vh;
   width: 100vw;
-  transition: 0.1s;
-  transition: top 0s ease-out;
 }
 
 .intro-img {
@@ -63,7 +61,6 @@ body {
   height: 100%;
   object-fit: cover;
   object-position: 50% 32%;
-  transition: 0.1s;
 }
 
 .menu-button:hover {
@@ -174,6 +171,18 @@ body {
   text-align: center;
   text-transform: uppercase;
   opacity: 1;
+}
+
+.description-head-img-wrap {
+  width: 94%;
+  height: 800px;
+  margin: 0 3%;
+  overflow: hidden;
+}
+.description-head-img-wrap img {
+  height: 100%;
+  width: 100%;
+  border-radius: 50% 50% 0 0;
 }
 
 .slideFromBelow * {

@@ -65,7 +65,6 @@ function App() {
       },
       { threshold: 0.01 }
     );
-    console.log(isDescHeadTextIntersect)
     if (description_head_text.current) observer.observe(description_head_text.current)
     return () => observer.disconnect()
   }, []);
@@ -74,7 +73,8 @@ function App() {
     if (wrap.current !== null && img.current !== null) {
       setWrapSize();
       if (distanceFromTop < 800) {
-        setWrapImgPosition(`${window.scrollY}px`);
+        console.log(distanceFromTop)
+        setWrapImgPosition(`${distanceFromTop}px`);
       } else if (distanceFromTop > 800 && distanceFromTop < 1400) {
         setObjPos();
       }
@@ -171,6 +171,9 @@ function App() {
         <div className="description-head-text" ref={description_head_text}>
           <h1>This is me.</h1>
           <h1>A young web developer from Poland, looking for an opportunity.</h1>
+        </div>
+        <div className="description-head-img-wrap">
+          <img src="/dummy2.jpg"/>
         </div>
       </section>
     </main>
