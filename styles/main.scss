@@ -140,6 +140,7 @@ body {
 }
 .description {
   background-color: $react-blue-dark;
+  height: 800px;
 }
 .description-head-text {
   width: 100%;
@@ -154,9 +155,38 @@ h1 {
     opacity: 1;
   }
 }
-.description-head-img-wrap {
+.description-content-wrap {
+  display: flex;
+  height: 60%;
+  div {
+    display: none;
+    justify-content: center;
+    img {
+      width: 20%;
+    }
+  }
+}
+.desc-left {
+  align-items: center;
+  img {
+    border-radius: 15% 0 0 15%;
+  }
+}
+.desc-middle {
+ align-items: flex-start;
+ img {
+  border-radius: 50% 50% 0 0;
+ }
+}
+.desc-right {
+  align-items: flex-end;
+  img {
+    border-radius: 0 15% 15% 0;
+  }
+}
+/* .description-head-img-wrap {
   width: 94%;
-  height: 800px;
+  height: 600px;
   margin: 0 3%;
   overflow: hidden;
   img {
@@ -164,7 +194,7 @@ h1 {
     width: 100%;
     border-radius: 50% 50% 0 0;
   }
-}
+} */
 .slideFromBelow * {
   animation: slideInFromBelow 0.6s linear;
 }
@@ -175,7 +205,13 @@ h1 {
     animation-play-state: paused !important;
   }
 }
-@media (min-width: 900px) {
+@media (min-width: 800px) {
+  .description-content-wrap {
+    flex-direction: column;
+    .desc-middle {
+      display: flex;
+    }
+  }
   
 }
 @keyframes scrollRight {
