@@ -180,9 +180,9 @@ function App() {
       </section>
       <section className="description">
         <div className="description-head-text" ref={description_head_text}>
-          <h1>This is me.</h1>
+          <h1>{t("description.intro-head")}</h1>
           <h1>
-            A young web developer from Poland, looking for an opportunity.
+            {t("description.intro-desc")}
           </h1>
         </div>
         <div className="description-content-wrap">
