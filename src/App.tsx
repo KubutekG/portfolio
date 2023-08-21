@@ -42,7 +42,11 @@ function App() {
   }
   function setWrapImgPosition(top: string) {
     if (wrap.current !== null) {
-      wrap.current.style.top = top;
+      if (window.scrollY >= 800){
+      wrap.current.style.top = '800px';
+      } else {
+        wrap.current.style.top = top
+      }
     }
   }
   function setObjPos() {
@@ -87,6 +91,12 @@ function App() {
       description_head_text.current?.classList.add("slideFromBelow");
     }
   }, [isDescHeadTextIntersect]);
+
+  useEffect(() => {
+    setWrapSize()
+    setWrapImgPosition(`${window.scrollY.toString()}px`)
+    setObjPos()
+  },[])
 
   return (
     <main>

@@ -209,7 +209,8 @@ body {
     align-items: center;
   }
   .description-content-wrap .desc-left img {
-    max-height: 350px;
+    margin-top: 8rem;
+    max-height: 300px;
     border-radius: 20% 0 0 0;
   }
   .description-content-wrap .desc-middle img {
@@ -219,7 +220,7 @@ body {
     align-items: flex-end;
   }
   .description-content-wrap .desc-right img {
-    max-height: 400px;
+    max-height: 300px;
     border-radius: 0 20% 0 0;
   }
 }
