@@ -42,10 +42,10 @@ function App() {
   }
   function setWrapImgPosition(top: string) {
     if (wrap.current !== null) {
-      if (window.scrollY >= 800){
-      wrap.current.style.top = '800px';
+      if (window.scrollY >= 800) {
+        wrap.current.style.top = "800px";
       } else {
-        wrap.current.style.top = top
+        wrap.current.style.top = top;
       }
     }
   }
@@ -93,21 +93,20 @@ function App() {
   }, [isDescHeadTextIntersect]);
 
   useEffect(() => {
-    setWrapSize()
-    setWrapImgPosition(`${window.scrollY.toString()}px`)
-    setObjPos()
-  },[])
+    setWrapSize();
+    setWrapImgPosition(`${window.scrollY.toString()}px`);
+    setObjPos();
+  }, []);
 
   return (
     <main>
-      <button className="menu-button" aria-label="Open menu">
-        Menu
+      <button className="menu-button button-inverted" aria-label="Open or close menu">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          fill="none"
           viewBox="0 0 24 24"
-          strokeWidth="1.5"
+          strokeWidth="1"
           stroke="currentColor"
+          className="open-button hidden"
         >
           <path
             strokeLinecap="round"
@@ -115,7 +114,20 @@ function App() {
             d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
           />
         </svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          width="32px"
+          height="32px"
+          viewBox="0 0 50 50"
+          className="close-button"
+        >
+          <path d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z"></path>
+        </svg>
       </button>
+      <div className="menu">
+        aha
+      </div>
       <section className="intro">
         <div className="intro-wrap">
           <div className="intro-img-wrap" ref={wrap}>
@@ -181,17 +193,17 @@ function App() {
       <section className="description">
         <div className="description-head-text" ref={description_head_text}>
           <h1>{t("description.intro-head")}</h1>
-          <h1>
-            {t("description.intro-desc")}
-          </h1>
+          <h1>{t("description.intro-desc")}</h1>
         </div>
         <div className="description-content-wrap">
           <div className="desc-left">
             <img src="/dummy2.jpg" />
           </div>
           <div className="desc-middle">
-            <div className="description-head-img-wrap">
-              <img src="/dummy2.jpg" />
+            <img src="/dummy2.jpg" />
+            <div className="description-body">
+              <h2>Aha</h2>
+              <p>to niezle</p>
             </div>
           </div>
           <div className="desc-right">
