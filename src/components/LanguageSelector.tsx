@@ -5,7 +5,7 @@ const LanguageSelector = () => {
     
     const [selectedLanguage, setSelectedLanguage] = useState(i18n.language);
 
-    const chooseLanguage = (e) => {
+    const chooseLanguage = (e: React.ChangeEvent<HTMLSelectElement>) => {
         e.preventDefault();
         i18n.changeLanguage(e?.target?.value);
         setSelectedLanguage(e?.target?.value);
@@ -13,7 +13,7 @@ const LanguageSelector = () => {
 
     return (
         <select defaultValue={selectedLanguage} onChange={chooseLanguage}>  
-            <option value="pl">Polish</option>
+            <option value="pl">Polski</option>
             <option value="en">English</option>
         </select>
     );

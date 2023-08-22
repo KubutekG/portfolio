@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useEffect, useRef, useState } from "react";
 import "../styles/main.css";
 import MarqueeElement from "./components/MarqueeElement";
+import LanguageSelector from './components/LanguageSelector'
 
 function App() {
   const { t } = useTranslation();
@@ -126,7 +127,13 @@ function App() {
         </svg>
       </button>
       <div className="menu">
-        aha
+        <LanguageSelector />
+        <ul>
+          <li>Home</li>
+          <li>About Me</li>
+          <li>Projects</li>
+          <li>Contact</li>
+        </ul>
       </div>
       <section className="intro">
         <div className="intro-wrap">

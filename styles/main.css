@@ -72,13 +72,33 @@ h1, h2, p {
 
 .menu {
   position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   top: 0;
   right: 0;
-  height: 65vh;
-  width: 55vw;
+  height: 45vh;
+  width: 50vw;
   background-color: #00879f;
   z-index: 1;
   border-radius: 0 0 0 10%;
+}
+.menu select {
+  margin: 0 0 0 2rem;
+  width: 20%;
+}
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0 2rem;
+  font-size: 3rem;
+  text-transform: uppercase;
+}
+.menu ul li {
+  cursor: pointer;
+}
+.menu ul li:hover {
+  color: rgb(255, 234, 185);
 }
 
 .intro {
@@ -246,6 +266,9 @@ h1, h2, p {
 @media (min-width: 900px) {
   .menu-button::before {
     content: "Menu";
+  }
+  .menu {
+    width: 35vw;
   }
   .description-content-wrap {
     justify-content: space-around;
