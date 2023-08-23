@@ -79,7 +79,6 @@ function App() {
     if (wrap.current !== null && img.current !== null) {
       setWrapSize();
       if (distanceFromTop < 800) {
-        console.log(distanceFromTop);
         setWrapImgPosition(`${distanceFromTop}px`);
       } else if (distanceFromTop > 800 && distanceFromTop < 1400) {
         setObjPos();
