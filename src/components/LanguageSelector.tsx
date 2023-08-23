@@ -5,17 +5,16 @@ const LanguageSelector = () => {
     
     const [selectedLanguage, setSelectedLanguage] = useState(i18n.language);
 
-    const chooseLanguage = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        e.preventDefault();
-        i18n.changeLanguage(e?.target?.value);
-        setSelectedLanguage(e?.target?.value);
+    const chooseLanguage = (lang: string) => {
+        i18n.changeLanguage(lang);
+        setSelectedLanguage(lang);
     }
 
     return (
-        <select defaultValue={selectedLanguage} onChange={chooseLanguage}>  
-            <option value="pl">Polski</option>
-            <option value="en">English</option>
-        </select>
+        <div className="lang-wrap">
+            {selectedLanguage === "pl" ? <div className="button-normal" onClick={() => chooseLanguage("pl")}>pl</div> : <div className="button-inverted" onClick={() => chooseLanguage("pl")}>pl</div>}
+            {selectedLanguage === "en" ? <div className="button-normal" onClick={() => chooseLanguage("en")}>en</div> : <div className="button-inverted" onClick={() => chooseLanguage("en")}>en</div>}
+        </div>
     );
 };
 

@@ -129,10 +129,10 @@ function App() {
       <div className="menu">
         <LanguageSelector />
         <ul>
-          <li>Home</li>
-          <li>About Me</li>
-          <li>Projects</li>
-          <li>Contact</li>
+          <li>{t("menu.main")}</li>
+          <li>{t("menu.about")}</li>
+          <li>{t("menu.projects")}</li>
+          <li>{t("menu.contact")}</li>
         </ul>
       </div>
       <section className="intro">

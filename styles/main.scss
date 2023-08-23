@@ -30,7 +30,7 @@ h1, h2, p {
   font-size: 1rem;
   display: flex;
   align-items: center;
-  transition: 0.25s ease-out;
+  padding: 0 0 0 2px;
   svg {
     height: 2rem;
   }
@@ -43,6 +43,8 @@ h1, h2, p {
   background: linear-gradient(to bottom, $bg-light 50%, $react-blue-dark 50%);
   background-size: 100% 200%;
   background-position: top;
+  transition: 0.25s ease-out;
+  cursor: pointer;
 }
 .button-normal:hover {
   color: $bg-light;
@@ -56,6 +58,8 @@ h1, h2, p {
   background-size: 100% 200%;
   background-position: top;
   color: $bg-light;
+  transition: 0.25s ease-out;
+  cursor: pointer;
 }
 .button-inverted:hover {
   color: $react-blue-dark;
@@ -63,32 +67,45 @@ h1, h2, p {
 }
 .menu {
   position: fixed;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
   top: 0;
   right: 0;
-  height: 45vh;
-  width: 50vw;
+  min-height: 300px;
+  min-width: 300px;
   background-color: $react-blue-dark;
   z-index: 1;
   border-radius: 0 0 0 10%;
-  select {
-    margin: 0 0 0 2rem;
-    width: 20%;
-  }
   ul {
     list-style: none;
     padding: 0;
-    margin: 0 0 0 2rem;
-    font-size: 3rem;
+    margin: 1rem 0 0 4rem;
+    font-size: $font-menu-li;
     text-transform: uppercase;
     li {
       cursor: pointer;
     }
     li:hover {
-      color: rgb(255, 234, 185);
+      color: $bg-light;
     }
+  }
+}
+.lang-wrap {
+  margin: 1rem 0 0 4rem;
+  width: 8rem;
+  height: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border: $bg-light solid 1px;
+  border-bottom: $bg-light solid 4px;
+  border-right: $bg-light solid 4px; 
+  div {
+    width: 4rem;
+    text-align: center;
+    border: none;
+  }
+  .button-normal:hover {
+    background-position: top;
+    color: $react-blue-dark;
   }
 }
 .intro {
@@ -239,9 +256,6 @@ h1 {
   }
 }
 @media (min-width: 900px) {
-  .menu-button::before {
-    content: 'Menu';
-  }
   .menu {
     width: 35vw;
   }
@@ -272,6 +286,11 @@ h1 {
     }
   }
 
+  }
+}
+@media(min-width: 1200px) {
+  .menu-button::before {
+    content: 'Menu';
   }
 }
 @keyframes scrollRight {
