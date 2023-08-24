@@ -10,9 +10,11 @@ function App() {
   const { t } = useTranslation();
   const wrap = useRef<HTMLDivElement>(null);
   const img = useRef<HTMLImageElement>(null);
+  const menu = useRef<HTMLDivElement>(null)
   const description_head_text = useRef<HTMLDivElement>(null);
   const [isDescHeadTextIntersect, setDescHeadIntersect] = useState(false);
   const [distanceFromTop, setDistanceFromTop] = useState(window.scrollY);
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const width = useRef(100 - window.scrollY / 12);
   const height = useRef(100 - window.scrollY / 60);
 
@@ -54,6 +56,9 @@ function App() {
     if (img.current !== null) {
       img.current.style.objectPosition = `50% ${50 - distanceFromTop / 50}%`;
     }
+  }
+  function handleMenuButton () {
+    isMenuOpen ? setIsMenuOpen(false) : setIsMenuOpen(true)
   }
   useEffect(() => {
     function handleMove() {
@@ -97,10 +102,13 @@ function App() {
     setWrapImgPosition(`${window.scrollY.toString()}px`);
     setObjPos();
   }, []);
-
+  
+  useEffect(() => {
+    menu.current?.classList.toggle('hidden')
+  },[isMenuOpen])
   return (
     <main>
-      <button className="menu-button button-inverted" aria-label="Open or close menu">
+      <button className="menu-button button-inverted" aria-label="Open or close menu" onClick={() => handleMenuButton()}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -125,7 +133,7 @@ function App() {
           <path d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z"></path>
         </svg>
       </button>
-      <div className="menu">
+      <div className="menu" ref={menu}>
         <LanguageSelector />
         <ul>
           <li>{t("menu.main")}</li>
