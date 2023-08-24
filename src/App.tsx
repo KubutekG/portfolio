@@ -4,17 +4,17 @@ import { useTranslation } from "react-i18next";
 import { useEffect, useRef, useState } from "react";
 import "../styles/main.css";
 import MarqueeElement from "./components/MarqueeElement";
-import LanguageSelector from './components/LanguageSelector'
+import LanguageSelector from "./components/LanguageSelector";
 
 function App() {
   const { t } = useTranslation();
   const wrap = useRef<HTMLDivElement>(null);
   const img = useRef<HTMLImageElement>(null);
-  const menu = useRef<HTMLDivElement>(null)
+  const menu = useRef<HTMLDivElement>(null);
   const description_head_text = useRef<HTMLDivElement>(null);
   const [isDescHeadTextIntersect, setDescHeadIntersect] = useState(false);
   const [distanceFromTop, setDistanceFromTop] = useState(window.scrollY);
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const width = useRef(100 - window.scrollY / 12);
   const height = useRef(100 - window.scrollY / 60);
 
@@ -57,8 +57,8 @@ function App() {
       img.current.style.objectPosition = `50% ${50 - distanceFromTop / 50}%`;
     }
   }
-  function handleMenuButton () {
-    isMenuOpen ? setIsMenuOpen(false) : setIsMenuOpen(true)
+  function handleMenuButton() {
+    isMenuOpen ? setIsMenuOpen(false) : setIsMenuOpen(true);
   }
   useEffect(() => {
     function handleMove() {
@@ -102,13 +102,28 @@ function App() {
     setWrapImgPosition(`${window.scrollY.toString()}px`);
     setObjPos();
   }, []);
-  
+
   useEffect(() => {
-    menu.current?.classList.toggle('hidden')
-  },[isMenuOpen])
+    if (isMenuOpen) {
+      menu.current?.classList.remove("menu-collapse");
+      menu.current?.classList.toggle("hidden");
+      menu.current?.classList.toggle("menu-expand");
+    } else if (menu.current){
+      menu.current?.classList.remove("menu-expand");
+      menu.current?.classList.toggle("menu-collapse");
+      setTimeout(() => {
+        menu.current?.classList.toggle("hidden");
+      }, 750)
+      
+    }
+  }, [isMenuOpen]);
   return (
     <main>
-      <button className="menu-button button-inverted" aria-label="Open or close menu" onClick={() => handleMenuButton()}>
+      <button
+        className="menu-button button-normal"
+        aria-label="Open or close menu"
+        onClick={() => handleMenuButton()}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -133,9 +148,9 @@ function App() {
           <path d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z"></path>
         </svg>
       </button>
-      <div className="menu" ref={menu}>
+      <div className="menu hidden" ref={menu}>
         <LanguageSelector />
-        <ul>
+        <ul className="">
           <li>{t("menu.main")}</li>
           <li>{t("menu.about")}</li>
           <li>{t("menu.projects")}</li>
