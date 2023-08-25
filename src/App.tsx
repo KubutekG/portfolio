@@ -91,12 +91,6 @@ function App() {
   }, [distanceFromTop]);
 
   useEffect(() => {
-    if (isDescHeadTextIntersect) {
-      description_head_text.current?.classList.add("slideFromBelow");
-    }
-  }, [isDescHeadTextIntersect]);
-
-  useEffect(() => {
     setWrapSize();
     setWrapImgPosition(`${window.scrollY.toString()}px`);
     setObjPos();
@@ -134,12 +128,12 @@ function App() {
         </svg>
       </button>
       <div className={`${isMenuOpen ? 'menu show-menu' : 'menu'}`}>
-        <LanguageSelector />
-        <ul className={isMenuOpen ? '' : 'hidden'}>
-          <li>{t("menu.main")}</li>
-          <li>{t("menu.about")}</li>
-          <li>{t("menu.projects")}</li>
-          <li>{t("menu.contact")}</li>
+        <LanguageSelector isMenuOpen={isMenuOpen}/>
+        <ul>
+          <li className={isMenuOpen ? 'menu-item1' : 'hide-menu-item'}>{t("menu.main")}</li>
+          <li className={isMenuOpen ? 'menu-item2' : 'hide-menu-item'}>{t("menu.about")}</li>
+          <li className={isMenuOpen ? 'menu-item3' : 'hide-menu-item'}>{t("menu.projects")}</li>
+          <li className={isMenuOpen ? 'menu-item4' : 'hide-menu-item'}>{t("menu.contact")}</li>
         </ul>
       </div>
       <section className="intro">
@@ -205,7 +199,7 @@ function App() {
         </div>
       </section>
       <section className="description">
-        <div className="description-head-text" ref={description_head_text}>
+        <div className={`${isDescHeadTextIntersect ? 'description-head-text slide-from-below' : 'description-head-text'}`} ref={description_head_text}>
           <h1>{t("description.intro-head")}</h1>
           <h1>{t("description.intro-desc")}</h1>
         </div>

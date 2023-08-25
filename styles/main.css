@@ -86,10 +86,9 @@ h1, h2, p {
   border-radius: 50% 0 50% 50%;
   background-color: #00879f;
   z-index: 1;
-  transition: all 1s;
+  transition: all 1s ease-in;
 }
 .menu ul {
-  /* height: calc(100% - 3rem - 5px); */
   list-style: none;
   padding: 0;
   margin: 0 0 1.75rem 4rem;
@@ -103,7 +102,27 @@ h1, h2, p {
   color: rgb(245, 230, 200);
 }
 
-.sho-menu {
+.menu-item1 {
+  animation: slideListItem 2s;
+}
+
+.menu-item2 {
+  animation: slideListItem 2.3s;
+}
+
+.menu-item3 {
+  animation: slideListItem 2.6s;
+}
+
+.menu-item4 {
+  animation: slideListItem 2.9s;
+}
+
+.hide-menu-item {
+  animation: hideListItem 1s;
+}
+
+.show-menu {
   width: calc(250px + 10vw);
   height: 300px;
   border-radius: 0 0 0 10%;
@@ -112,7 +131,7 @@ h1, h2, p {
 .lang-wrap {
   margin: 1rem 0 1.75rem 4rem;
   width: 8rem;
-  height: 2rem;
+  min-height: 2rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -283,7 +302,7 @@ h1, h2, p {
   font-size: clamp(2.5vh, 2rem, 2vw);
 }
 
-.slideFromBelow * {
+.slide-from-below * {
   animation: slideInFromBelow 0.6s linear;
 }
 
@@ -348,6 +367,31 @@ h1, h2, p {
   to {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+@keyframes slideListItem {
+  from {
+    transform: translateY(2rem);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(2rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes hideListItem {
+  from {
+    opacity: 1;
+  }
+  35% {
+    opacity: 0;
+  }
+  to {
+    opacity: 0;
   }
 }
 

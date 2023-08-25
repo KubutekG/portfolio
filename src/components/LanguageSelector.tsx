@@ -1,7 +1,11 @@
 import {useState} from "react";
 import i18n from '../i18n/index';
 
-const LanguageSelector = () => {
+interface Props {
+    isMenuOpen: boolean
+}
+
+const LanguageSelector = ({ isMenuOpen }: Props) => {
     
     const [selectedLanguage, setSelectedLanguage] = useState(i18n.language);
 
@@ -11,7 +15,7 @@ const LanguageSelector = () => {
     }
 
     return (
-        <div className="lang-wrap">
+        <div className={`${isMenuOpen ? 'lang-wrap' : 'lang-wrap hide-menu-item'}`}>
             {selectedLanguage === "pl" ? <div className="button-normal" onClick={() => chooseLanguage("pl")}>pl</div> : <div className="button-inverted" onClick={() => chooseLanguage("pl")}>pl</div>}
             {selectedLanguage === "en" ? <div className="button-normal" onClick={() => chooseLanguage("en")}>en</div> : <div className="button-inverted" onClick={() => chooseLanguage("en")}>en</div>}
         </div>
