@@ -67,6 +67,9 @@ h1, h2, p {
 }
 .menu {
   position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   top: 0;
   right: 0;
   width: 0;
@@ -74,10 +77,12 @@ h1, h2, p {
   border-radius: 50% 0 50% 50%;
   background-color: $react-blue-dark;
   z-index: 1;
+  transition: all 1s;
   ul {
+    /* height: calc(100% - 3rem - 5px); */
     list-style: none;
     padding: 0;
-    margin: 1rem 0 0 4rem;
+    margin: 0 0 1.75rem 4rem;
     font-size: 2.5rem;
     text-transform: uppercase;
     li {
@@ -88,17 +93,13 @@ h1, h2, p {
     }
   }
 }
-.menu-expand {
-  animation: menuExpand 0.75s;
+.sho-menu {
   width: calc(250px + 10vw);
-  height: calc(250px + 10vh);
+  height: 300px;
   border-radius: 0 0 0 10%;
 }
-.menu-collapse {
-  animation: menuCollapse 0.75s;
-}
 .lang-wrap {
-  margin: 1rem 0 0 4rem;
+  margin: 1rem 0 1.75rem 4rem;
   width: 8rem;
   height: 2rem;
   display: flex;
@@ -323,29 +324,5 @@ h1 {
   to {
     transform: translateY(0);
     opacity: 1;
-  }
-}
-@keyframes menuExpand {
-  from {
-    width: 0;
-    height: 0;
-    border-radius: 50% 0 50% 50%;
-  }
-  to {
-    width: calc(250px + 10vw);
-    height: calc(250px + 10vh);
-    border-radius: 0 0 0 10%;
-  }
-}
-@keyframes menuCollapse {
-  from {
-    width: calc(250px + 10vw);
-    height: calc(250px + 10vh);
-    border-radius: 0 0 0 10%;
-  }
-  to {
-    width: 0;
-    height: 0;
-    border-radius: 50% 0 50% 50%;
   }
 }

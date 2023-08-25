@@ -10,7 +10,6 @@ function App() {
   const { t } = useTranslation();
   const wrap = useRef<HTMLDivElement>(null);
   const img = useRef<HTMLImageElement>(null);
-  const menu = useRef<HTMLDivElement>(null);
   const description_head_text = useRef<HTMLDivElement>(null);
   const [isDescHeadTextIntersect, setDescHeadIntersect] = useState(false);
   const [distanceFromTop, setDistanceFromTop] = useState(window.scrollY);
@@ -103,24 +102,10 @@ function App() {
     setObjPos();
   }, []);
 
-  useEffect(() => {
-    if (isMenuOpen) {
-      menu.current?.classList.remove("menu-collapse");
-      menu.current?.classList.toggle("hidden");
-      menu.current?.classList.toggle("menu-expand");
-    } else if (menu.current){
-      menu.current?.classList.remove("menu-expand");
-      menu.current?.classList.toggle("menu-collapse");
-      setTimeout(() => {
-        menu.current?.classList.toggle("hidden");
-      }, 750)
-      
-    }
-  }, [isMenuOpen]);
   return (
     <main>
       <button
-        className="menu-button button-normal"
+        className={`menu-button ${isMenuOpen ? 'button-inverted' : 'button-normal'}`}
         aria-label="Open or close menu"
         onClick={() => handleMenuButton()}
       >
@@ -148,9 +133,9 @@ function App() {
           <path d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z"></path>
         </svg>
       </button>
-      <div className="menu hidden" ref={menu}>
+      <div className={`${isMenuOpen ? 'menu show-menu' : 'menu'}`}>
         <LanguageSelector />
-        <ul className="">
+        <ul className={isMenuOpen ? '' : 'hidden'}>
           <li>{t("menu.main")}</li>
           <li>{t("menu.about")}</li>
           <li>{t("menu.projects")}</li>
