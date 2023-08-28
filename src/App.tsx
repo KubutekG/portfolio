@@ -5,6 +5,8 @@ import { useEffect, useRef, useState } from "react";
 import "../styles/main.css";
 import MarqueeElement from "./components/MarqueeElement";
 import LanguageSelector from "./components/LanguageSelector";
+import MenuIcon from "./components/MenuIcon";
+import IntroMarquee from "./components/IntroMarquee";
 
 function App() {
   const { t } = useTranslation();
@@ -103,30 +105,9 @@ function App() {
         aria-label="Open or close menu"
         onClick={() => handleMenuButton()}
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          strokeWidth="1"
-          stroke="currentColor"
-          className="open-button hidden"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-          />
-        </svg>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="currentColor"
-          width="32px"
-          height="32px"
-          viewBox="0 0 50 50"
-          className="close-button"
-        >
-          <path d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z"></path>
-        </svg>
+        <MenuIcon isMenuOpen={isMenuOpen}/>
       </button>
+      <div className={isMenuOpen ? 'white-bg-block' : 'white-bg'}></div>
       <div className={`${isMenuOpen ? 'menu show-menu' : 'menu'}`}>
         <LanguageSelector isMenuOpen={isMenuOpen}/>
         <ul>
@@ -152,50 +133,7 @@ function App() {
               </div>
             </div>
           </div>
-          <div className="marquee-wrap">
-            <div className="marquee">
-              <ul className="marquee_content left">
-                <MarqueeElement style="transparent" content="react" />
-                <MarqueeElement style="color" content="typescript" />
-                <MarqueeElement style="transparent" content="scss" />
-                <MarqueeElement style="color" content="rwd" />
-              </ul>
-              <ul aria-hidden="true" className="marquee_content left">
-                <MarqueeElement style="transparent" content="react" />
-                <MarqueeElement style="color" content="typescript" />
-                <MarqueeElement style="transparent" content="scss" />
-                <MarqueeElement style="color" content="rwd" />
-              </ul>
-            </div>
-            <div className="marquee">
-              <ul className="marquee_content right">
-                <MarqueeElement style="color" content="nodejs" />
-                <MarqueeElement style="transparent" content="express" />
-                <MarqueeElement style="color" content="mongo" />
-                <MarqueeElement style="transparent" content="rest api" />
-              </ul>
-              <ul aria-hidden="true" className="marquee_content right">
-                <MarqueeElement style="color" content="nodejs" />
-                <MarqueeElement style="transparent" content="express" />
-                <MarqueeElement style="color" content="mongo" />
-                <MarqueeElement style="transparent" content="rest api" />
-              </ul>
-            </div>
-            <div className="marquee">
-              <ul className="marquee_content left">
-                <MarqueeElement style="color" content="github" />
-                <MarqueeElement style="transparent" content="clean code" />
-                <MarqueeElement style="color" content="testing" />
-                <MarqueeElement style="transparent" content="optimization" />
-              </ul>
-              <ul aria-hidden="true" className="marquee_content left">
-                <MarqueeElement style="color" content="github" />
-                <MarqueeElement style="transparent" content="clean code" />
-                <MarqueeElement style="color" content="testing" />
-                <MarqueeElement style="transparent" content="optimization" />
-              </ul>
-            </div>
-          </div>
+          <IntroMarquee />
         </div>
       </section>
       <section className="description">
