@@ -199,7 +199,7 @@ h1, h2, p {
   gap: 5%;
   p {
     width: 60%;
-    font-size: $font-p;
+    font-size: $font-s;
   }
 }
 .marquee-wrap {
@@ -267,21 +267,24 @@ h1 {
   display: flex;
   justify-content: center;
   height: 70%;
+  margin-inline: 5vw;
   .desc-left,
   .desc-right {
     display: none;
   }
   .desc-middle {
+    margin-inline: 5vw;
     img {
       width: 90vw;
       border-radius: 50% 50% 0 0;
     }
     h2 {
-      font-size: $font-h2;
+      font-size: $font-s;
       margin: 1rem 0;
     }
     p {
-      font-size: $font-p;
+      margin: 0.5rem 0;
+      font-size: $font-xs;
     }
   }
 }
@@ -299,6 +302,7 @@ h1 {
   .description-content-wrap {
     justify-content: space-around;
     .desc-left,
+    .desc-middle,
     .desc-right {
       display: flex;
   }
@@ -311,6 +315,8 @@ h1 {
     }
   }
   .desc-middle {
+    flex-direction: column;
+    align-items: center;
     img {
       width: 40vw;
     }

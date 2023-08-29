@@ -138,8 +138,8 @@ function App() {
       </section>
       <section className="description">
         <div className={`${isDescHeadTextIntersect ? 'description-head-text slide-from-below' : 'description-head-text'}`} ref={description_head_text}>
-          <h1>{t("description.intro-head")}</h1>
-          <h1>{t("description.intro-desc")}</h1>
+          <h1>{t("description.intro.head")}</h1>
+          <h1>{t("description.intro.desc")}</h1>
         </div>
         <div className="description-content-wrap">
           <div className="desc-left">
@@ -148,8 +148,9 @@ function App() {
           <div className="desc-middle">
             <img src="/dummy2.jpg" />
             <div className="description-body">
-              <h2>Aha</h2>
-              <p>to niezle</p>
+              <h2>{t("description.main.title")}</h2>
+              <p>{t("description.main.body")}</p>
+              <p>{t("description.main.html")}</p>
             </div>
           </div>
           <div className="desc-right">

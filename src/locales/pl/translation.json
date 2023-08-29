@@ -6,8 +6,14 @@
     "contact": "KONTAKT"
   },
   "intro": "TypeScript? React? Oczywiście że je znam - używam ich codziennie. Backend też, a tak dokładniej to Node lub Django. Jeśli chodzi o kontrolę wersji preferuję GitHub. Odwiedź tę stronę na urządzeniu mobilnym lub użyj DevTools by sprawdzić moją kompetencję w tworzeniu responsywnych aplikacji",
-  "description":{
-    "intro-head": "To jestem ja.",
-    "intro-desc": "Młody web developer z polski, który szuka okazji do rozwinięcia skrzydeł."
+  "description": {
+    "intro": {
+      "head": "To jestem ja.",
+      "desc": "Młody web developer z polski, który szuka okazji do rozwinięcia skrzydeł."
+    },
+    "main": {
+      "title": "Aha",
+      "body": "To niezle xd"
+    }
   }
 }
