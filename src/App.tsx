@@ -71,7 +71,10 @@ function App() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setDescHeadIntersect((_i) => entry.isIntersecting);
+        if (entry.isIntersecting) {
+          setDescHeadIntersect(true);
+          observer.disconnect();
+        }
       },
       { threshold: 0.01 }
     );
@@ -100,20 +103,30 @@ function App() {
   return (
     <main>
       <button
-        className={`menu-button ${isMenuOpen ? 'button-inverted' : 'button-normal'}`}
+        className={`menu-button ${
+          isMenuOpen ? "button-inverted" : "button-normal"
+        }`}
         aria-label="Open or close menu"
         onClick={() => handleMenuButton()}
       >
-        <MenuIcon isMenuOpen={isMenuOpen}/>
+        <MenuIcon isMenuOpen={isMenuOpen} />
       </button>
-      <div className={isMenuOpen ? 'white-bg-block' : 'white-bg'}></div>
-      <div className={`${isMenuOpen ? 'menu show-menu' : 'menu'}`}>
-        <LanguageSelector isMenuOpen={isMenuOpen}/>
+      <div className={isMenuOpen ? "white-bg-block" : "white-bg"}></div>
+      <div className={`${isMenuOpen ? "menu show-menu" : "menu"}`}>
+        <LanguageSelector isMenuOpen={isMenuOpen} />
         <ul>
-          <li className={isMenuOpen ? 'menu-item1' : 'hide-menu-item'}>{t("menu.main")}</li>
-          <li className={isMenuOpen ? 'menu-item2' : 'hide-menu-item'}>{t("menu.about")}</li>
-          <li className={isMenuOpen ? 'menu-item3' : 'hide-menu-item'}>{t("menu.projects")}</li>
-          <li className={isMenuOpen ? 'menu-item4' : 'hide-menu-item'}>{t("menu.contact")}</li>
+          <li className={isMenuOpen ? "menu-item1" : "hide-menu-item"}>
+            {t("menu.main")}
+          </li>
+          <li className={isMenuOpen ? "menu-item2" : "hide-menu-item"}>
+            {t("menu.about")}
+          </li>
+          <li className={isMenuOpen ? "menu-item3" : "hide-menu-item"}>
+            {t("menu.projects")}
+          </li>
+          <li className={isMenuOpen ? "menu-item4" : "hide-menu-item"}>
+            {t("menu.contact")}
+          </li>
         </ul>
       </div>
       <section className="intro">
@@ -136,7 +149,14 @@ function App() {
         </div>
       </section>
       <section className="description">
-        <div className={`${isDescHeadTextIntersect ? 'description-head-text slide-from-below' : 'description-head-text'}`} ref={description_head_text}>
+        <div
+          className={`${
+            isDescHeadTextIntersect
+              ? "description-head-text slide-from-below"
+              : "description-head-text"
+          }`}
+          ref={description_head_text}
+        >
           <h1>{t("description.intro.head")}</h1>
           <h1>{t("description.intro.desc")}</h1>
         </div>
