@@ -12,8 +12,9 @@
       "desc": "Młody web developer z polski, który szuka okazji do rozwinięcia skrzydeł."
     },
     "main": {
-      "title": "Aha",
-      "body": "To niezle xd"
+      "title": "Kilka lat temu obrałem w życiu cel - zostać mistrzowskim web developerem",
+      "body": "Ten cel się nie zmienił, wciąż uczę się nowych technologii oraz rozwiązań, wciąż znajduje nowe sposoby optymalizacji kodu oraz odnajduję nowoczesne schematy UI/UX",
+      "extend": "Niezależnie czy jest to aplikacja typu SPA czy aplikacja wielostronicowa stworzona przy użyciu systemu szablonów, wiem jak ją stworzyć i szybko nauczę się utrzymać ją w idealnym stanie."
     }
   }
 }

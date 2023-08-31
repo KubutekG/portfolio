@@ -3,7 +3,6 @@
 import { useTranslation } from "react-i18next";
 import { useEffect, useRef, useState } from "react";
 import "../styles/main.css";
-import MarqueeElement from "./components/MarqueeElement";
 import LanguageSelector from "./components/LanguageSelector";
 import MenuIcon from "./components/MenuIcon";
 import IntroMarquee from "./components/IntroMarquee";
@@ -150,7 +149,7 @@ function App() {
             <div className="description-body">
               <h2>{t("description.main.title")}</h2>
               <p>{t("description.main.body")}</p>
-              <p>{t("description.main.html")}</p>
+              <p>{t("description.main.extend")}</p>
             </div>
           </div>
           <div className="desc-right">
