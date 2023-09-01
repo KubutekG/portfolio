@@ -6,6 +6,7 @@ import "../styles/main.css";
 import LanguageSelector from "./components/LanguageSelector";
 import MenuIcon from "./components/MenuIcon";
 import IntroMarquee from "./components/IntroMarquee";
+import { getHeight, getWidth } from './lib/getSize'
 
 function App() {
   const { t } = useTranslation();
@@ -15,13 +16,13 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const styles = {
     wrap: {
-      width: (100 - distanceFromTop / 12) > 33 ? `${(100 - distanceFromTop / 12).toFixed(0)}vw` : '33vw',
-      height: (100 - distanceFromTop / 60) > 87 ? `${(100 - distanceFromTop / 60).toFixed(0)}vh` : '87vh',
-      margin: (100 - distanceFromTop / 60) > 87 ? `${(100 - (100 - distanceFromTop / 60)) / 8}% ${(100 - (100 - distanceFromTop / 12)) / 2}%` : '1.66% 33.33%',
-      top: distanceFromTop >= 800 ? 800 : distanceFromTop
+      width: `${getWidth(distanceFromTop, 45, 800)}vw`,
+      height: `${getHeight(distanceFromTop, 86, 800)}vh`,
+      top: distanceFromTop >= 800 ? 800 : distanceFromTop,
+      margin: `${((100 - getHeight(distanceFromTop, 86, 800)) / 8)}% ${((100 - getWidth(distanceFromTop, 45, 800)) / 2)}%`
     },
     img: {
-      objectPosition: `50% ${50 - distanceFromTop / 25}%`
+      objectPosition: `50% ${50 - distanceFromTop / 20}%`
     }
   }
 
