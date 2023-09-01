@@ -9,54 +9,23 @@ import IntroMarquee from "./components/IntroMarquee";
 
 function App() {
   const { t } = useTranslation();
-  const wrap = useRef<HTMLDivElement>(null);
-  const img = useRef<HTMLImageElement>(null);
   const description_head_text = useRef<HTMLDivElement>(null);
   const [isDescHeadTextIntersect, setDescHeadIntersect] = useState(false);
   const [distanceFromTop, setDistanceFromTop] = useState(window.scrollY);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const width = useRef(100 - window.scrollY / 12);
-  const height = useRef(100 - window.scrollY / 60);
+  const styles = {
+    wrap: {
+      width: (100 - distanceFromTop / 12) > 33 ? `${(100 - distanceFromTop / 12).toFixed(0)}vw` : '33vw',
+      height: (100 - distanceFromTop / 60) > 87 ? `${(100 - distanceFromTop / 60).toFixed(0)}vh` : '87vh',
+      margin: (100 - distanceFromTop / 60) > 87 ? `${(100 - (100 - distanceFromTop / 60)) / 8}% ${(100 - (100 - distanceFromTop / 12)) / 2}%` : '1.66% 33.33%',
+      top: distanceFromTop >= 800 ? 800 : distanceFromTop
+    },
+    img: {
+      objectPosition: `50% ${50 - distanceFromTop / 25}%`
+    }
+  }
 
-  function setWrapSize() {
-    if (wrap.current !== null) {
-      if (100 - distanceFromTop / 12 > 33) {
-        wrap.current.style.width = `${(width.current = +(
-          100 -
-          distanceFromTop / 12
-        ).toFixed(0))}vw`;
-      } else {
-        wrap.current.style.width = "33vw";
-        width.current = 33;
-      }
-      if (100 - distanceFromTop / 60 > 87) {
-        wrap.current.style.height = `${(height.current = +(
-          100 -
-          distanceFromTop / 60
-        ).toFixed(0))}vh`;
-      } else {
-        wrap.current.style.height = "87vh";
-        height.current = 87;
-      }
-      wrap.current.style.margin = `${(1 * (100 - height.current)) / 8}% ${
-        (100 - width.current) / 2
-      }% ${(1 * (100 - height.current)) / 8}% ${(100 - width.current) / 2}%`;
-    }
-  }
-  function setWrapImgPosition(top: string) {
-    if (wrap.current !== null) {
-      if (window.scrollY >= 800) {
-        wrap.current.style.top = "800px";
-      } else {
-        wrap.current.style.top = top;
-      }
-    }
-  }
-  function setObjPos() {
-    if (img.current !== null) {
-      img.current.style.objectPosition = `50% ${50 - distanceFromTop / 50}%`;
-    }
-  }
+  
   useEffect(() => {
     function handleMove() {
       setDistanceFromTop((_dist) => window.scrollY);
@@ -78,23 +47,6 @@ function App() {
     if (description_head_text.current)
       observer.observe(description_head_text.current);
     return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    if (wrap.current !== null && img.current !== null) {
-      setWrapSize();
-      if (distanceFromTop < 800) {
-        setWrapImgPosition(`${distanceFromTop}px`);
-      } else if (distanceFromTop > 800 && distanceFromTop < 1400) {
-        setObjPos();
-      }
-    }
-  }, [distanceFromTop]);
-
-  useEffect(() => {
-    setWrapSize();
-    setWrapImgPosition(`${window.scrollY.toString()}px`);
-    setObjPos();
   }, []);
 
   return (
@@ -128,8 +80,8 @@ function App() {
       </div>
       <section className="intro">
         <div className="intro-wrap">
-          <div className="intro-img-wrap" ref={wrap}>
-            <img src="/dummy.jpg" className="intro-img" ref={img} />
+          <div className="intro-img-wrap" style={styles.wrap}>
+            <img src="/dummy.jpg" className="intro-img" style={styles.img}/>
           </div>
           <div className="intro-text-wrap">
             <div className="name-intro-text-wrap">
