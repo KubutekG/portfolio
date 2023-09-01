@@ -57,9 +57,6 @@ function App() {
       img.current.style.objectPosition = `50% ${50 - distanceFromTop / 50}%`;
     }
   }
-  function handleMenuButton() {
-    isMenuOpen ? setIsMenuOpen(false) : setIsMenuOpen(true);
-  }
   useEffect(() => {
     function handleMove() {
       setDistanceFromTop((_dist) => window.scrollY);
@@ -107,7 +104,7 @@ function App() {
           isMenuOpen ? "button-inverted" : "button-normal"
         }`}
         aria-label="Open or close menu"
-        onClick={() => handleMenuButton()}
+        onClick={() => isMenuOpen ? setIsMenuOpen(false) : setIsMenuOpen(true)}
       >
         <MenuIcon isMenuOpen={isMenuOpen} />
       </button>
