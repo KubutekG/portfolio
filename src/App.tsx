@@ -11,7 +11,9 @@ import { getHeight, getWidth } from './lib/getSize'
 function App() {
   const { t } = useTranslation();
   const description_head_text = useRef<HTMLDivElement>(null);
+  const description = useRef<HTMLElement>(null);
   const [isDescHeadTextIntersect, setDescHeadIntersect] = useState(false);
+  const [isButtonIntersect, setIsButtonIntersect] = useState(false);
   const [distanceFromTop, setDistanceFromTop] = useState(window.scrollY);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const styles = {
@@ -49,12 +51,28 @@ function App() {
       observer.observe(description_head_text.current);
     return () => observer.disconnect();
   }, []);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsButtonIntersect(true)
+        } else {
+          setIsButtonIntersect(false)
+        }
+      },
+      { threshold: 0.75 }
+    );
+    if(description.current)
+      observer.observe(description.current)
+    return () => observer.disconnect()
+  },[])
 
   return (
     <main>
       <button
         className={`menu-button ${
-          isMenuOpen ? "button-inverted" : "button-normal"
+          isMenuOpen || isButtonIntersect ? "button-inverted" : "button-normal"
         }`}
         aria-label="Open or close menu"
         onClick={() => isMenuOpen ? setIsMenuOpen(false) : setIsMenuOpen(true)}
@@ -98,7 +116,7 @@ function App() {
           <IntroMarquee />
         </div>
       </section>
-      <section className="description">
+      <section className="description" ref={description}>
         <div
           className={`${
             isDescHeadTextIntersect
