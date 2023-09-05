@@ -272,12 +272,22 @@ h1 {
   .desc-left,
   .desc-right {
     display: none;
+    margin-bottom: 4rem;
   }
   .desc-middle {
     margin-inline: 5vw;
-    img {
-      width: 90vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .desc-img-wrap {
+      display: inline-block;
+      overflow: hidden;
       border-radius: 50% 50% 0 0;
+    }
+    img {
+      width: 80vw;
+      border-radius: 50% 50% 0 0;
+      vertical-align: bottom;
     }
     h2 {
       font-size: $font-s;
@@ -287,6 +297,34 @@ h1 {
       margin: 0.5rem 0;
       font-size: $font-xs;
     }
+  }
+}
+.projects {
+  background-color: $bg-light;
+  h1 {
+    font-size: $font-h1;
+    text-align: center;
+    color: $react-blue-dark;
+  }
+}
+.projects-list-container {
+  margin-inline: 5vw;
+}
+.project {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  border-radius: 5% 5% 5% 5%;
+  img {
+    max-width: 90vw;
+    max-height: 400px;
+  }
+  h2 {
+    padding-left: 2rem;
+  }
+  .project-img-desc-wrap {
+    background-color: grey;
+    border-radius: 0 0 5% 5%;
   }
 }
 .slide-from-below * {
@@ -309,9 +347,10 @@ h1 {
   }
   .desc-left {
     align-items: center;
+    transform: translateY(-64px);
     img {
       margin-top: 8rem;
-      max-height: 300px;
+      max-height: 500px;
       border-radius: 20% 0 0 0;
     }
   }
@@ -325,7 +364,7 @@ h1 {
   .desc-right {
     align-items: flex-end;
     img {
-      max-height: 300px;
+      max-height: 500px;
       border-radius: 0 20% 0 0;
     }
   }

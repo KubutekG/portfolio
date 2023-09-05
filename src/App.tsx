@@ -6,7 +6,7 @@ import "../styles/main.css";
 import LanguageSelector from "./components/LanguageSelector";
 import MenuIcon from "./components/MenuIcon";
 import IntroMarquee from "./components/IntroMarquee";
-import { getHeight, getWidth } from './lib/getSize'
+import { getHeight, getWidth, getScale, getTranslateY } from "./lib/getSize";
 
 function App() {
   const { t } = useTranslation();
@@ -21,14 +21,21 @@ function App() {
       width: `${getWidth(distanceFromTop, 45, 800)}vw`,
       height: `${getHeight(distanceFromTop, 86, 800)}vh`,
       top: distanceFromTop >= 800 ? 800 : distanceFromTop,
-      margin: `${((100 - getHeight(distanceFromTop, 86, 800)) / 8)}% ${((100 - getWidth(distanceFromTop, 45, 800)) / 2)}%`
+      margin: `${(100 - getHeight(distanceFromTop, 86, 800)) / 8}% ${
+        (100 - getWidth(distanceFromTop, 45, 800)) / 2
+      }%`,
     },
     img: {
-      objectPosition: `50% ${50 - distanceFromTop / 20}%`
+      objectPosition: `50% ${50 - distanceFromTop / 20}%`,
+    },
+    desc_img: {
+      transform: `scale(${getScale(distanceFromTop, 1400, 600)})`,
+    },
+    desc_left: {
+      transform: `translateY(${getTranslateY(distanceFromTop, 1400, 600)}px)`
     }
-  }
+  };
 
-  
   useEffect(() => {
     function handleMove() {
       setDistanceFromTop((_dist) => window.scrollY);
@@ -51,22 +58,17 @@ function App() {
       observer.observe(description_head_text.current);
     return () => observer.disconnect();
   }, []);
-  
+
   useEffect(() => {
-    const observer = new IntersectionObserver(
+    const observer2 = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsButtonIntersect(true)
-        } else {
-          setIsButtonIntersect(false)
-        }
+        setIsButtonIntersect(entry.isIntersecting);
       },
-      { threshold: 0.75 }
+      { threshold: 0.5, root: null, rootMargin: "0px" }
     );
-    if(description.current)
-      observer.observe(description.current)
-    return () => observer.disconnect()
-  },[])
+    if (description.current) observer2.observe(description.current);
+    return () => observer2.disconnect();
+  }, []);
 
   return (
     <main>
@@ -75,7 +77,9 @@ function App() {
           isMenuOpen || isButtonIntersect ? "button-inverted" : "button-normal"
         }`}
         aria-label="Open or close menu"
-        onClick={() => isMenuOpen ? setIsMenuOpen(false) : setIsMenuOpen(true)}
+        onClick={() =>
+          isMenuOpen ? setIsMenuOpen(false) : setIsMenuOpen(true)
+        }
       >
         <MenuIcon isMenuOpen={isMenuOpen} />
       </button>
@@ -100,7 +104,7 @@ function App() {
       <section className="intro">
         <div className="intro-wrap">
           <div className="intro-img-wrap" style={styles.wrap}>
-            <img src="/dummy.jpg" className="intro-img" style={styles.img}/>
+            <img src="/dummy.jpg" className="intro-img" style={styles.img} />
           </div>
           <div className="intro-text-wrap">
             <div className="name-intro-text-wrap">
@@ -129,11 +133,13 @@ function App() {
           <h1>{t("description.intro.desc")}</h1>
         </div>
         <div className="description-content-wrap">
-          <div className="desc-left">
+          <div className="desc-left" style={styles.desc_left}>
             <img src="/dummy2.jpg" />
           </div>
           <div className="desc-middle">
-            <img src="/dummy2.jpg" />
+            <div className="desc-img-wrap">
+              <img src="/dummy2.jpg" style={styles.desc_img}/>
+            </div>
             <div className="description-body">
               <h2>{t("description.main.title")}</h2>
               <p>{t("description.main.body")}</p>
@@ -142,6 +148,18 @@ function App() {
           </div>
           <div className="desc-right">
             <img src="/dummy2.jpg" />
+          </div>
+        </div>
+      </section>
+      <section className="projects">
+        <h1>My projects:</h1>
+        <div className="projects-list-container">
+          <div className="project">
+            <div className="project-img-desc-wrap">
+              <img src="/dummy2.jpg" />
+              <h2> Description</h2>
+            </div>
+            <h2>Technology</h2>
           </div>
         </div>
       </section>
