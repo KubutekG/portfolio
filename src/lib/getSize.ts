@@ -21,9 +21,9 @@ export function getHeight(
   }
 }
 export function getScale(distanceFromTop: number, cutoff: number, range: number) {
-  if (distanceFromTop <= cutoff - range){
-    return 0.5
-  } else if (distanceFromTop >= cutoff + range){
+  if (distanceFromTop < cutoff || +(((distanceFromTop / cutoff) * 7 / 8).toFixed(2)) < 1){
+    return 1
+  } else if (distanceFromTop > cutoff + range){
     return 1.25
   } else {
     return ((distanceFromTop / cutoff) * 7 / 8).toFixed(2)
@@ -33,6 +33,6 @@ export function getTranslateY(distanceFromTop: number, cutoff: number, range: nu
   if(distanceFromTop <= cutoff - range) {
     return 0
   } else {
-    return (distanceFromTop / 20).toFixed(0)
+    return (distanceFromTop / 10).toFixed(0)
   }
 }

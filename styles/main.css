@@ -324,6 +324,7 @@ h1, h2, p {
   border-radius: 50% 50% 0 0;
 }
 .description-content-wrap .desc-middle img {
+  min-width: 80vw;
   width: 80vw;
   border-radius: 50% 50% 0 0;
   vertical-align: bottom;
@@ -388,7 +389,6 @@ h1, h2, p {
   }
   .description-content-wrap .desc-left {
     align-items: center;
-    transform: translateY(-64px);
   }
   .description-content-wrap .desc-left img {
     margin-top: 8rem;

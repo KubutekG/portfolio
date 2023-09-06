@@ -285,6 +285,7 @@ h1 {
       border-radius: 50% 50% 0 0;
     }
     img {
+      min-width: 80vw;
       width: 80vw;
       border-radius: 50% 50% 0 0;
       vertical-align: bottom;
@@ -347,7 +348,6 @@ h1 {
   }
   .desc-left {
     align-items: center;
-    transform: translateY(-64px);
     img {
       margin-top: 8rem;
       max-height: 500px;
