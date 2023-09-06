@@ -20,19 +20,31 @@ export function getHeight(
     return height;
   }
 }
-export function getScale(distanceFromTop: number, cutoff: number, range: number) {
-  if (distanceFromTop < cutoff || +(((distanceFromTop / cutoff) * 7 / 8).toFixed(2)) < 1){
-    return 1
-  } else if (distanceFromTop > cutoff + range){
-    return 1.25
+export function getScale(
+  distanceFromTop: number,
+  cutoff: number,
+  range: number
+) {
+  if (
+    distanceFromTop < cutoff ||
+    +(((distanceFromTop / cutoff) * 7) / 8).toFixed(2) < 1
+  ) {
+    return 1;
+  } else if (distanceFromTop > cutoff + range) {
+    return 1.25;
   } else {
-    return ((distanceFromTop / cutoff) * 7 / 8).toFixed(2)
+    return (((distanceFromTop / cutoff) * 7) / 8).toFixed(2);
   }
 }
-export function getTranslateY(distanceFromTop: number, cutoff: number, range: number){
-  if(distanceFromTop <= cutoff - range) {
-    return 0
+export function getTranslateY(
+  distanceFromTop: number,
+  speed: number
+) {
+  if (distanceFromTop/speed <= 0) {
+    return 0;
+  } else if (distanceFromTop/speed >= 40) {
+    return 40
   } else {
-    return (distanceFromTop / 10).toFixed(0)
+    return distanceFromTop/speed
   }
 }

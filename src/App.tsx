@@ -32,7 +32,7 @@ function App() {
       transform: `scale(${getScale(distanceFromTop, 1400, 600)})`,
     },
     desc_left: {
-      transform: `translateY(${getTranslateY(distanceFromTop, 1200, 800)}px)`
+      transform: `translateY(-${getTranslateY(distanceFromTop, 60)}%)`
     }
   };
 

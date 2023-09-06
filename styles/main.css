@@ -400,6 +400,7 @@ h1, h2, p {
     align-items: center;
   }
   .description-content-wrap .desc-middle img {
+    min-width: 40vw;
     width: 40vw;
   }
   .description-content-wrap .desc-right {
