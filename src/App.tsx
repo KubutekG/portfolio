@@ -15,6 +15,7 @@ function App() {
   const [isDescHeadTextIntersect, setDescHeadIntersect] = useState(false);
   const [isButtonIntersect, setIsButtonIntersect] = useState(false);
   const [distanceFromTop, setDistanceFromTop] = useState(window.scrollY);
+  const [viewportHeight, setViewportHeight] = useState(window.innerHeight)
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const styles = {
     wrap: {
@@ -41,8 +42,16 @@ function App() {
       setDistanceFromTop((_dist) => window.scrollY);
     }
     document.addEventListener("scroll", handleMove);
-    return () => window.removeEventListener("scroll", handleMove);
+    return () => document.removeEventListener("scroll", handleMove);
   }, []);
+  
+  useEffect(() => {
+    function handleResize () {
+      setViewportHeight((_height) => window.innerHeight)
+    }
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -109,7 +118,7 @@ function App() {
           <div className="intro-text-wrap">
             <div className="name-intro-text-wrap">
               <div className="name-intro-title-wrap">
-                <h1>Jakub Giedzicz</h1>
+                <h1>{viewportHeight}</h1>
                 <h2>Fullstack Web Developer</h2>
               </div>
               <div className="text-p-wrap">
