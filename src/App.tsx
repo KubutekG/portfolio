@@ -68,7 +68,7 @@ function App() {
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
+  /* useEffect(() => {
     const observer2 = new IntersectionObserver(
       ([entry]) => {
         setIsButtonIntersect(entry.isIntersecting);
@@ -77,7 +77,7 @@ function App() {
     );
     if (description.current) observer2.observe(description.current);
     return () => observer2.disconnect();
-  }, []);
+  }, []); */
 
   return (
     <main>
@@ -118,7 +118,7 @@ function App() {
           <div className="intro-text-wrap">
             <div className="name-intro-text-wrap">
               <div className="name-intro-title-wrap">
-                <h1>{viewportHeight}</h1>
+                <h1>Jakub Giedzicz</h1>
                 <h2>Fullstack Web Developer</h2>
               </div>
               <div className="text-p-wrap">
@@ -152,7 +152,7 @@ function App() {
             <div className="description-body">
               <h2>{t("description.main.title")}</h2>
               <p>{t("description.main.body")}</p>
-              <p>{t("description.main.extend")}</p>
+              <p className="desc-p">{t("description.main.extend")}</p>
             </div>
           </div>
           <div className="desc-right">
