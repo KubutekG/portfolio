@@ -251,6 +251,7 @@ h1, h2, p {
 }
 .description {
   background-color: $react-blue-dark;
+  min-height: 130vh;
 }
 .description-head-text {
   width: 100%;
@@ -265,40 +266,35 @@ h1 {
   }
 }
 .description-content-wrap {
-  display: flex;
-  justify-content: center;
-  height: 70%;
-  margin-inline: 5vw;
-  .desc-left,
-  .desc-right {
-    display: none;
-    margin-bottom: 4rem;
-  }
-  .desc-middle {
+    width: 90%;
+    height: 100%;
     margin-inline: 5vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    .desc-img-wrap {
-      display: inline-block;
-      overflow: hidden;
-      border-radius: 50% 50% 0 0;
+    .desc-left,
+    .desc-right {
+      display: none;
     }
-    img {
-      min-width: 80vw;
-      width: 80vw;
-      border-radius: 50% 50% 0 0;
-      vertical-align: bottom;
+    .desc-middle {
+      .desc-img-wrap {
+        display: inline-block;
+        overflow: hidden;
+        border-radius: 50% 50% 0 0;
+        width: 100%;
+        img {
+          width: 100%;
+        }
+      }
     }
     h2 {
       font-size: $font-s;
-      margin: 1rem 0;
+      margin: 2rem 0;
     }
     p {
       margin: 0.5rem 0;
       font-size: $font-xs;
     }
-  }
+    .desc-p {
+      padding-bottom: 2rem;
+    }
 }
 .projects {
   background-color: $bg-light;
@@ -339,37 +335,34 @@ h1 {
   }
 }
 @media (min-width: 900px) {
-  .description-content-wrap {
-    justify-content: space-around;
+  .description {
     .desc-left,
-    .desc-middle,
     .desc-right {
       display: flex;
-  }
-  .desc-left {
-    align-items: center;
-    img {
-      margin-top: 8rem;
-      max-height: 500px;
-      border-radius: 20% 0 0 0;
+      justify-content: center;
+      img {
+        width: 80%;
+      }
     }
-  }
-  .desc-middle {
-    flex-direction: column;
-    align-items: center;
-    img {
-      min-width: 40vw;
-      width: 40vw;
+    .desc-left {
+      align-items: center;
+      img {
+        border-radius: 20% 0 0 0;
+      }
     }
-  }
-  .desc-right {
-    align-items: flex-end;
-    img {
-      max-height: 500px;
-      border-radius: 0 20% 0 0;
+    .desc-right {
+      align-items: flex-end;
+      img {
+        border-radius: 0 20% 0 0;
+      }
     }
-  }
-
+    .description-content-wrap {
+      display: flex;
+      justify-content: space-between;
+      .desc-img-wrap {
+        width: 100%;
+      }
+    }
   }
 }
 @media(min-width: 1300px) {
