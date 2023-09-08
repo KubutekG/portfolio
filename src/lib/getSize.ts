@@ -22,18 +22,15 @@ export function getHeight(
 }
 export function getScale(
   distanceFromTop: number,
-  cutoff: number,
-  range: number
+  viewport: number,
+  description: number,
 ) {
-  if (
-    distanceFromTop < cutoff ||
-    +(((distanceFromTop / cutoff) * 7) / 8).toFixed(2) < 1
-  ) {
+  if (viewport + 800 > distanceFromTop) {
     return 1;
-  } else if (distanceFromTop > cutoff + range) {
-    return 1.25;
+  } else if (distanceFromTop > viewport + 800 + description) {
+    return 1.15;
   } else {
-    return (((distanceFromTop / cutoff) * 7) / 8).toFixed(2);
+    return (1 + (distanceFromTop - viewport - 800) / 10000).toFixed(2)
   }
 }
 export function getTranslateY(

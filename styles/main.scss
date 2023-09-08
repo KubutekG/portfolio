@@ -271,6 +271,9 @@ h1 {
     .desc-left,
     .desc-right {
       display: none;
+      img {
+        display: none;
+      }
     }
     .desc-middle {
       .desc-img-wrap {
@@ -340,25 +343,28 @@ h1 {
     .desc-right {
       display: flex;
       justify-content: center;
-      align-items: center;
       img {
         width: 80%;
+        display: inline;
       }
     }
     .desc-left {
       margin-top: 4rem;
+      align-items: flex-start;
       img {
         border-radius: 20% 0 0 0;
       }
     }
     .desc-right {
       margin-top: 16rem;
+      align-items: center;
       img {
         border-radius: 0 20% 0 0;
       }
     }
     .description-content-wrap {
       display: flex;
+      overflow: hidden;
       .desc-middle {
         .desc-img-wrap {
           width: 100%;

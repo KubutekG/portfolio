@@ -30,20 +30,20 @@ function App() {
       objectPosition: `50% ${50 - distanceFromTop / 20}%`,
     },
     desc_img: {
-      transform: `scale(${getScale(distanceFromTop, 1400, 600)})`,
+      transform: `scale(${getScale(distanceFromTop, viewportHeight, descHeight)})`,
     },
     desc_left: {
       transform:
         distanceFromTop + viewportHeight > viewportHeight + 800 &&
         distanceFromTop < distanceFromTop + 2.3 * viewportHeight
-          ? `translateY(${getTranslateY(distanceFromTop, viewportHeight, 40)}%)`
+          ? `translateY(${getTranslateY(distanceFromTop, viewportHeight, 20)}%)`
           : "translateY(0)",
     },
     desc_right: {
       transform:
         distanceFromTop + viewportHeight > viewportHeight + 800 &&
         distanceFromTop < distanceFromTop + 2.3 * viewportHeight
-          ? `translateY(${getTranslateY(distanceFromTop, viewportHeight, 60)}%)`
+          ? `translateY(${getTranslateY(distanceFromTop, viewportHeight, 30)}%)`
           : "translateY(0)",
     },
   };
@@ -51,7 +51,6 @@ function App() {
   useEffect(() => {
     function handleMove() {
       setDistanceFromTop((_dist) => window.scrollY);
-      console.log(descHeight)
     }
     document.addEventListener("scroll", handleMove);
     return () => document.removeEventListener("scroll", handleMove);
@@ -148,8 +147,8 @@ function App() {
           <h1>{t("description.intro.desc")}</h1>
         </div>
         <div className="description-content-wrap">
-          <div className="desc-left" style={styles.desc_left}>
-            <img src="/dummy2.jpg" />
+          <div className="desc-left" >
+            <img src="/dummy2.jpg" style={styles.desc_left}/>
           </div>
           <div className="desc-middle">
             <div className="desc-img-wrap">
@@ -161,8 +160,8 @@ function App() {
               <p className="desc-p">{t("description.main.extend")}</p>
             </div>
           </div>
-          <div className="desc-right" style={styles.desc_right}>
-            <img src="/dummy2.jpg" />
+          <div className="desc-right" >
+            <img src="/dummy2.jpg" style={styles.desc_right}/>
           </div>
         </div>
       </section>
