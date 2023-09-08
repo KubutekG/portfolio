@@ -12,10 +12,10 @@ function App() {
   const { t } = useTranslation();
   const description_head_text = useRef<HTMLDivElement>(null);
   const description = useRef<HTMLElement>(null);
+  const [descHeight, setDescHeight] = useState(0)
   const [isDescHeadTextIntersect, setDescHeadIntersect] = useState(false);
-  const [isButtonIntersect, setIsButtonIntersect] = useState(false);
   const [distanceFromTop, setDistanceFromTop] = useState(window.scrollY);
-  const [viewportHeight, setViewportHeight] = useState(window.innerHeight)
+  const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const styles = {
     wrap: {
@@ -33,25 +33,38 @@ function App() {
       transform: `scale(${getScale(distanceFromTop, 1400, 600)})`,
     },
     desc_left: {
-      transform: `translateY(-${getTranslateY(distanceFromTop, 60)}%)`
-    }
+      transform:
+        distanceFromTop + viewportHeight > viewportHeight + 800 &&
+        distanceFromTop < distanceFromTop + 2.3 * viewportHeight
+          ? `translateY(${getTranslateY(distanceFromTop, viewportHeight, 40)}%)`
+          : "translateY(0)",
+    },
+    desc_right: {
+      transform:
+        distanceFromTop + viewportHeight > viewportHeight + 800 &&
+        distanceFromTop < distanceFromTop + 2.3 * viewportHeight
+          ? `translateY(${getTranslateY(distanceFromTop, viewportHeight, 60)}%)`
+          : "translateY(0)",
+    },
   };
 
   useEffect(() => {
     function handleMove() {
       setDistanceFromTop((_dist) => window.scrollY);
+      console.log(descHeight)
     }
     document.addEventListener("scroll", handleMove);
     return () => document.removeEventListener("scroll", handleMove);
   }, []);
-  
+
   useEffect(() => {
-    function handleResize () {
-      setViewportHeight((_height) => window.innerHeight)
+    function handleResize() {
+      setViewportHeight((_height) => window.innerHeight);
+      setDescHeight((_height) => description.current!.clientHeight)
     }
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -68,22 +81,15 @@ function App() {
     return () => observer.disconnect();
   }, []);
 
-  /* useEffect(() => {
-    const observer2 = new IntersectionObserver(
-      ([entry]) => {
-        setIsButtonIntersect(entry.isIntersecting);
-      },
-      { threshold: 0.5, root: null, rootMargin: "0px" }
-    );
-    if (description.current) observer2.observe(description.current);
-    return () => observer2.disconnect();
-  }, []); */
+  useEffect(() => {
+    setDescHeight((_height) => description.current!.clientHeight)
+  },[description])
 
   return (
     <main>
       <button
         className={`menu-button ${
-          isMenuOpen || isButtonIntersect ? "button-inverted" : "button-normal"
+          isMenuOpen || (distanceFromTop >= viewportHeight + 800 && distanceFromTop < descHeight + viewportHeight + 800) ? "button-inverted" : "button-normal"
         }`}
         aria-label="Open or close menu"
         onClick={() =>
@@ -147,7 +153,7 @@ function App() {
           </div>
           <div className="desc-middle">
             <div className="desc-img-wrap">
-              <img src="/dummy2.jpg" style={styles.desc_img}/>
+              <img src="/dummy2.jpg" style={styles.desc_img} />
             </div>
             <div className="description-body">
               <h2>{t("description.main.title")}</h2>
@@ -155,7 +161,7 @@ function App() {
               <p className="desc-p">{t("description.main.extend")}</p>
             </div>
           </div>
-          <div className="desc-right">
+          <div className="desc-right" style={styles.desc_right}>
             <img src="/dummy2.jpg" />
           </div>
         </div>

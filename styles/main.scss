@@ -266,9 +266,8 @@ h1 {
   }
 }
 .description-content-wrap {
-    width: 90%;
     height: 100%;
-    margin-inline: 5vw;
+    margin-inline: 2.5vw;
     .desc-left,
     .desc-right {
       display: none;
@@ -312,6 +311,7 @@ h1 {
   flex-direction: column;
   background-color: black;
   border-radius: 5% 5% 5% 5%;
+  height: 200vh;
   img {
     max-width: 90vw;
     max-height: 400px;
@@ -340,27 +340,29 @@ h1 {
     .desc-right {
       display: flex;
       justify-content: center;
+      align-items: center;
       img {
         width: 80%;
       }
     }
     .desc-left {
-      align-items: center;
+      margin-top: 4rem;
       img {
         border-radius: 20% 0 0 0;
       }
     }
     .desc-right {
-      align-items: flex-end;
+      margin-top: 16rem;
       img {
         border-radius: 0 20% 0 0;
       }
     }
     .description-content-wrap {
       display: flex;
-      justify-content: space-between;
-      .desc-img-wrap {
-        width: 100%;
+      .desc-middle {
+        .desc-img-wrap {
+          width: 100%;
+        }
       }
     }
   }

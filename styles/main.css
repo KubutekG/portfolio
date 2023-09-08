@@ -303,9 +303,8 @@ h1, h2, p {
 }
 
 .description-content-wrap {
-  width: 90%;
   height: 100%;
-  margin-inline: 5vw;
+  margin-inline: 2.5vw;
 }
 .description-content-wrap .desc-left,
 .description-content-wrap .desc-right {
@@ -350,6 +349,7 @@ h1, h2, p {
   flex-direction: column;
   background-color: black;
   border-radius: 5% 5% 5% 5%;
+  height: 200vh;
 }
 .project img {
   max-width: 90vw;
@@ -377,28 +377,28 @@ h1, h2, p {
   .description .desc-right {
     display: flex;
     justify-content: center;
+    align-items: center;
   }
   .description .desc-left img,
   .description .desc-right img {
     width: 80%;
   }
   .description .desc-left {
-    align-items: center;
+    margin-top: 4rem;
   }
   .description .desc-left img {
     border-radius: 20% 0 0 0;
   }
   .description .desc-right {
-    align-items: flex-end;
+    margin-top: 16rem;
   }
   .description .desc-right img {
     border-radius: 0 20% 0 0;
   }
   .description .description-content-wrap {
     display: flex;
-    justify-content: space-between;
   }
-  .description .description-content-wrap .desc-img-wrap {
+  .description .description-content-wrap .desc-middle .desc-img-wrap {
     width: 100%;
   }
 }

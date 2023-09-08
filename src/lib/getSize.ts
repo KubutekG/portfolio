@@ -38,13 +38,8 @@ export function getScale(
 }
 export function getTranslateY(
   distanceFromTop: number,
-  speed: number
+  viewport: number,
+  speed: number,
 ) {
-  if (distanceFromTop/speed <= 0) {
-    return 0;
-  } else if (distanceFromTop/speed >= 40) {
-    return 40
-  } else {
-    return distanceFromTop/speed
-  }
+  return (distanceFromTop - viewport - 800) / speed
 }
