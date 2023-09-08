@@ -82,19 +82,21 @@ function App() {
 
   useEffect(() => {
     setDescHeight((_height) => description.current!.clientHeight)
-  },[description])
+  })
 
   return (
     <main>
       <button
         className={`menu-button ${
-          isMenuOpen || (distanceFromTop >= viewportHeight + 800 && distanceFromTop < descHeight + viewportHeight + 800) ? "button-inverted" : "button-normal"
+          isMenuOpen || (distanceFromTop >= viewportHeight + 768 && distanceFromTop < descHeight + viewportHeight + 768) ? "button-inverted" : "button-normal"
         }`}
         aria-label="Open or close menu"
         onClick={() =>
           isMenuOpen ? setIsMenuOpen(false) : setIsMenuOpen(true)
         }
       >
+        {viewportHeight}
+        {descHeight}
         <MenuIcon isMenuOpen={isMenuOpen} />
       </button>
       <div className={isMenuOpen ? "white-bg-block" : "white-bg"}></div>
