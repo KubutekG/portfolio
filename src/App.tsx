@@ -7,6 +7,7 @@ import LanguageSelector from "./components/LanguageSelector";
 import MenuIcon from "./components/MenuIcon";
 import IntroMarquee from "./components/IntroMarquee";
 import { getHeight, getWidth, getScale, getTranslateY } from "./lib/getSize";
+import Projects from "./components/ProjectsList";
 
 function App() {
   const { t } = useTranslation();
@@ -95,8 +96,6 @@ function App() {
           isMenuOpen ? setIsMenuOpen(false) : setIsMenuOpen(true)
         }
       >
-        {viewportHeight}
-        {descHeight}
         <MenuIcon isMenuOpen={isMenuOpen} />
       </button>
       <div className={isMenuOpen ? "white-bg-block" : "white-bg"}></div>
@@ -170,13 +169,7 @@ function App() {
       <section className="projects">
         <h1>My projects:</h1>
         <div className="projects-list-container">
-          <div className="project">
-            <div className="project-img-desc-wrap">
-              <img src="/dummy2.jpg" />
-              <h2> Description</h2>
-            </div>
-            <h2>Technology</h2>
-          </div>
+          <Projects />
         </div>
       </section>
     </main>
