@@ -311,7 +311,7 @@ h1 {
   margin-inline: 5vw;
   width: 100%;
   display: grid;
-  grid-template-columns: 42.5% 42.5%;
+  grid-template-columns: 85%;
   column-gap: 5%;
   row-gap: 4rem;
 }
@@ -319,7 +319,6 @@ h1 {
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  background-color: black;
   border-radius: 5%;
   h2 {
     padding: 1rem 0 1rem 1rem;
@@ -328,6 +327,7 @@ h1 {
     background-color: $react-blue-dark;
     border-radius: 5%;
     img {
+      max-height: 50vh;
       width: 90%;
       margin: 1% 5%;
       border-radius: 5%;
@@ -379,10 +379,18 @@ h1 {
       }
     }
   }
+  .projects-list-container {
+    grid-template-columns: 42.5% 42.5%;
+  }
 }
 @media(min-width: 1300px) {
   .menu-button::before {
     content: 'Menu';
+  }
+  .projects-list-container {
+    grid-template-columns: 30% 30% 30%;
+    margin-inline: 2.5%;
+    column-gap: 2.5%;
   }
 }
 @keyframes scrollRight {

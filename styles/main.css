@@ -349,7 +349,7 @@ h1, h2, p {
   margin-inline: 5vw;
   width: 100%;
   display: grid;
-  grid-template-columns: 42.5% 42.5%;
+  grid-template-columns: 85%;
   column-gap: 5%;
   row-gap: 4rem;
 }
@@ -358,7 +358,6 @@ h1, h2, p {
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  background-color: black;
   border-radius: 5%;
 }
 .project h2 {
@@ -369,6 +368,7 @@ h1, h2, p {
   border-radius: 5%;
 }
 .project .project-img-desc-wrap img {
+  max-height: 50vh;
   width: 90%;
   margin: 1% 5%;
   border-radius: 5%;
@@ -415,10 +415,18 @@ h1, h2, p {
   .description .description-content-wrap .desc-middle .desc-img-wrap {
     width: 100%;
   }
+  .projects-list-container {
+    grid-template-columns: 42.5% 42.5%;
+  }
 }
 @media (min-width: 1300px) {
   .menu-button::before {
     content: "Menu";
+  }
+  .projects-list-container {
+    grid-template-columns: 30% 30% 30%;
+    margin-inline: 2.5%;
+    column-gap: 2.5%;
   }
 }
 @keyframes scrollRight {

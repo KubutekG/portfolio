@@ -18,6 +18,8 @@ function App() {
   const [distanceFromTop, setDistanceFromTop] = useState(window.scrollY);
   const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isProjectOpen, setIsProjectOpen] = useState(false)
+
   const styles = {
     wrap: {
       width: `${getWidth(distanceFromTop, 45, 800)}vw`,
@@ -48,7 +50,9 @@ function App() {
           : "translateY(0)",
     },
   };
-
+  function toggleProject() {
+    isProjectOpen ? setIsProjectOpen(false) : setIsProjectOpen(true)
+  }
   useEffect(() => {
     function handleMove() {
       setDistanceFromTop((_dist) => window.scrollY);
@@ -98,7 +102,7 @@ function App() {
       >
         <MenuIcon isMenuOpen={isMenuOpen} />
       </button>
-      <div className={isMenuOpen ? "white-bg-block" : "white-bg"}></div>
+      <div className={isMenuOpen ? "white-bg-block" : "white-bg"} onClick={() => setIsMenuOpen(false)}></div>
       <div className={`${isMenuOpen ? "menu show-menu" : "menu"}`}>
         <LanguageSelector isMenuOpen={isMenuOpen} />
         <ul>
@@ -169,7 +173,7 @@ function App() {
       <section className="projects">
         <h1>My projects:</h1>
         <div className="projects-list-container">
-          <Projects />
+          <Projects isProjectOpen={isProjectOpen} setIsProjectOpen={toggleProject}/>
         </div>
       </section>
     </main>
