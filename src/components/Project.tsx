@@ -2,38 +2,29 @@ export default function Project({
   name,
   img,
   description,
+  id,
   isProjectOpen,
   setIsProjectOpen,
 }: {
   name: string;
   img: string;
   description: string;
-  isProjectOpen: boolean;
-  setIsProjectOpen: () => void;
+  id: number;
+  isProjectOpen: number;
+  setIsProjectOpen: (id: number) => void;
 }) {
-  const extendedShown: React.CSSProperties = {
-        height: '90vh',
-        width: '90vw',
-        backgroundColor: 'red',
-        top: '50%',
-        left: '50%',
-        position: 'fixed',
-        transform: 'translateY(-50%) translateX(-50%)',
-        zIndex: 2,
-  }
-  const extendedHidden = {
-    display: 'none'
-  }
   return (
-    <div className="project" onClick={setIsProjectOpen}>
+    <div className="project" onClick={() => setIsProjectOpen(id)}>
       <div className="project-img-desc-wrap">
         <img src={img} />
         <h2>
           {description} {name}
         </h2>
       </div>
-      <div className="project-extended" style={isProjectOpen ? extendedShown : extendedHidden}>
-
+      <div className={isProjectOpen === id ? 'extended-shown' : 'hidden'}>
+        <img src={img} />
+        <h2>{name}</h2>
+        <p>{description}</p>
       </div>
     </div>
   );

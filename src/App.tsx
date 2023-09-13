@@ -18,7 +18,7 @@ function App() {
   const [distanceFromTop, setDistanceFromTop] = useState(window.scrollY);
   const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isProjectOpen, setIsProjectOpen] = useState(false)
+  const [isProjectOpen, setIsProjectOpen] = useState(0)
 
   const styles = {
     wrap: {
@@ -50,12 +50,12 @@ function App() {
           : "translateY(0)",
     },
   };
-  function toggleProject() {
-    isProjectOpen ? setIsProjectOpen(false) : setIsProjectOpen(true)
+  function toggleProject(id: number) {
+    isProjectOpen ? setIsProjectOpen(0) : setIsProjectOpen(id)
   }
   function handleBackgroundClick() {
     setIsMenuOpen(false)
-    setIsProjectOpen(false)
+    setIsProjectOpen(0)
   }
   useEffect(() => {
     function handleMove() {
