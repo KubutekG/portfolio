@@ -53,6 +53,10 @@ function App() {
   function toggleProject() {
     isProjectOpen ? setIsProjectOpen(false) : setIsProjectOpen(true)
   }
+  function handleBackgroundClick() {
+    setIsMenuOpen(false)
+    setIsProjectOpen(false)
+  }
   useEffect(() => {
     function handleMove() {
       setDistanceFromTop((_dist) => window.scrollY);
@@ -102,7 +106,7 @@ function App() {
       >
         <MenuIcon isMenuOpen={isMenuOpen} />
       </button>
-      <div className={isMenuOpen ? "white-bg-block" : "white-bg"} onClick={() => setIsMenuOpen(false)}></div>
+      <div className={isMenuOpen || isProjectOpen ? "white-bg-block" : "white-bg"} onClick={() => handleBackgroundClick()}></div>
       <div className={`${isMenuOpen ? "menu show-menu" : "menu"}`}>
         <LanguageSelector isMenuOpen={isMenuOpen} />
         <ul>

@@ -13,16 +13,19 @@ export default function Projects({
       img: "/dummy2.jpg",
       description: "Description",
       name: "Bella",
+      id: 1,
     },
     {
       img: "/dummy2.jpg",
       description: "Description",
       name: "Portfolio",
+      id: 2,
     },
     {
       img: "/dummy2.jpg",
       description: "Description",
       name: "aha",
+      id: 3,
     },
   ]);
   return (
@@ -35,6 +38,7 @@ export default function Projects({
             description={project.description}
             isProjectOpen={isProjectOpen}
             setIsProjectOpen={setIsProjectOpen}
+            key={project.id}
           />
         );
       })}
