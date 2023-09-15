@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Project from "./Project";
 export default function Projects({
   isProjectOpen,
@@ -8,7 +7,7 @@ export default function Projects({
   setIsProjectOpen: (id: number) => void;
 }) {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [projects, setProjects] = useState([
+  const projects = [
     {
       img: "/dummy2.jpg",
       description: "Description",
@@ -27,7 +26,7 @@ export default function Projects({
       name: "aha",
       id: 3,
     },
-  ]);
+  ];
   return (
     <>
       {projects.map((project) => {
