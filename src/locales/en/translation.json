@@ -16,5 +16,12 @@
       "body": "This goal of mine has not changed, I'm still here learning new technologies and solutions to modern web problems, still finding new ways of optimizing code and discovering new UI/UX designs.",
       "extend": "Be it a Single Page Application or a multi page app that utilises templating engine, i know how to build it and will quickly learn how to maintain it."
     }
+  },
+  "projects": {
+    "bella": "Bella Ciao is name of the fictional restaurant for which I made a webapp using NextJS and MongoDB",
+    "bella-ext": "This project was a way into NextJS for me and the timing couldn't have been better. It was a time when client/server components and app router were not yet declared stable and production ready, so I learned pages routing and getServerSideProps data fetching. But as time passed on these previously mentioned features were declared production ready so I decided to refactor what I had around them. The app is hosted on Vercel, the database (holding restaurant menu items) as mentioned is hosted on MongoDB. This project also helped me get a much better grasp of TypeScript.",
+    "bella-tech": "Tools used: NextJS, TypeScript, MongoDB, CSS Modules",
+    "portfolio": "port",
+    "portfolio-ext": "port2"
   }
 }

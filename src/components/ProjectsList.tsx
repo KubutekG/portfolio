@@ -1,4 +1,5 @@
 import Project from "./Project";
+import { useTranslation } from "react-i18next";
 export default function Projects({
   isProjectOpen,
   setIsProjectOpen,
@@ -7,22 +8,29 @@ export default function Projects({
   setIsProjectOpen: (id: number) => void;
 }) {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { t } = useTranslation();
   const projects = [
     {
       img: "/dummy2.jpg",
-      description: "Description",
-      name: "Bella",
+      description: t("projects.bella"),
+      descriptionExt: t("projects.bella-ext"),
+      tech: t("projects.bella-tech"),
+      name: "Bella Ciao",
       id: 1,
     },
     {
       img: "/dummy2.jpg",
-      description: "Description",
+      description: t("projects.portfolio"),
+      descriptionExt: t("projects.portfolio-ext"),
+      tech: t("projects.bella-tech"),
       name: "Portfolio",
       id: 2,
     },
     {
       img: "/dummy2.jpg",
       description: "Description",
+      descriptionExt: "DescE",
+      tech: "h",
       name: "aha",
       id: 3,
     },
@@ -35,6 +43,8 @@ export default function Projects({
             name={project.name}
             img={project.img}
             description={project.description}
+            descriptionExt={project.descriptionExt}
+            tools={project.tech}
             id={project.id}
             isProjectOpen={isProjectOpen}
             setIsProjectOpen={setIsProjectOpen}
