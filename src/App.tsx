@@ -13,7 +13,7 @@ import useHeight from "./lib/useHeight";
 function App() {
   const { t } = useTranslation();
   const description_head_text = useRef<HTMLDivElement>(null);
-  const description = useRef<HTMLElement>(null);
+  const description = useRef<HTMLElement | null>(null);
   const [descHeight, setDescHeight] = useState(description.current?.clientHeight)
   const [isDescHeadTextIntersect, setDescHeadIntersect] = useState(false);
   const [distanceFromTop, setDistanceFromTop] = useState(window.scrollY);
@@ -89,7 +89,7 @@ function App() {
     <main>
       <button
         className={`menu-button ${
-          isMenuOpen || (distanceFromTop >= viewportHeight + 768 && distanceFromTop < descHeight + viewportHeight + 768) ? "button-inverted" : "button-normal"
+          isMenuOpen || descHeight && (distanceFromTop >= viewportHeight + 768 && distanceFromTop < descHeight + viewportHeight + 768) ? "button-inverted" : "button-normal"
         }`}
         aria-label="Open or close menu"
         onClick={() =>

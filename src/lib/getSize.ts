@@ -23,20 +23,22 @@ export function getHeight(
 export function getScale(
   distanceFromTop: number,
   viewport: number,
-  description: number,
+  description: number | null | undefined
 ) {
-  if (viewport + 800 > distanceFromTop) {
-    return 1;
-  } else if (distanceFromTop > viewport + 800 + description) {
-    return 1.15;
-  } else {
-    return (1 + (distanceFromTop - viewport - 800) / 10000).toFixed(2)
+  if (description) {
+    if (viewport + 800 > distanceFromTop) {
+      return 1;
+    } else if (distanceFromTop > viewport + 800 + description) {
+      return 1.15;
+    } else {
+      return (1 + (distanceFromTop - viewport - 800) / 10000).toFixed(2);
+    }
   }
 }
 export function getTranslateY(
   distanceFromTop: number,
   viewport: number,
-  speed: number,
+  speed: number
 ) {
-  return (distanceFromTop - viewport - 800) / speed
+  return (distanceFromTop - viewport - 800) / speed;
 }

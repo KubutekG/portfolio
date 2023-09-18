@@ -21,6 +21,7 @@ export default function Project({
   setIsProjectOpen: (id: number) => void;
 }) {
   const height = useHeight()
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [imgHeight, setImgHeight] = useState(height * 0.85 * 0.7)
   const styles = {
     previous: {
