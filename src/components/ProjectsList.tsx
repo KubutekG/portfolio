@@ -22,7 +22,7 @@ export default function Projects({
       img: "/dummy2.jpg",
       description: t("projects.portfolio"),
       descriptionExt: t("projects.portfolio-ext"),
-      tech: t("projects.bella-tech"),
+      tech: t("projects.portfolio-tech"),
       name: "Portfolio",
       id: 2,
     },
