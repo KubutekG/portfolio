@@ -8,15 +8,16 @@ import MenuIcon from "./components/MenuIcon";
 import IntroMarquee from "./components/IntroMarquee";
 import { getHeight, getWidth, getScale, getTranslateY } from "./lib/getSize";
 import Projects from "./components/ProjectsList";
+import useHeight from "./lib/useHeight";
 
 function App() {
   const { t } = useTranslation();
   const description_head_text = useRef<HTMLDivElement>(null);
   const description = useRef<HTMLElement>(null);
-  const [descHeight, setDescHeight] = useState(0)
+  const [descHeight, setDescHeight] = useState(description.current?.clientHeight)
   const [isDescHeadTextIntersect, setDescHeadIntersect] = useState(false);
   const [distanceFromTop, setDistanceFromTop] = useState(window.scrollY);
-  const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
+  const viewportHeight = useHeight();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProjectOpen, setIsProjectOpen] = useState(0)
 
@@ -63,15 +64,6 @@ function App() {
     }
     document.addEventListener("scroll", handleMove);
     return () => document.removeEventListener("scroll", handleMove);
-  }, []);
-
-  useEffect(() => {
-    function handleResize() {
-      setViewportHeight((_height) => window.innerHeight);
-      setDescHeight((_height) => description.current!.clientHeight)
-    }
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   useEffect(() => {
