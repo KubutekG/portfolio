@@ -84,6 +84,14 @@ function App() {
   useEffect(() => {
     setDescHeight((_height) => description.current!.clientHeight)
   })
+    
+  useEffect(() => {
+    if(isMenuOpen || isProjectOpen != 0){
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'auto'
+    }
+  },[isMenuOpen, isProjectOpen])
 
   return (
     <main>

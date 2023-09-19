@@ -11,7 +11,7 @@ export default function Projects({
   const { t } = useTranslation();
   const projects = [
     {
-      img: ["/dummy2.jpg", "/dummy.jpg"],
+      img: ["/bella2.png", "/bella1.png", "/bella3.png"],
       description: t("projects.bella"),
       descriptionExt: t("projects.bella-ext"),
       tech: t("projects.bella-tech"),

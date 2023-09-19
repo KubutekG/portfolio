@@ -21,17 +21,16 @@ export default function Project({
   setIsProjectOpen: (id: number) => void;
 }) {
   const height = useHeight()
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [imgHeight, setImgHeight] = useState(height * 0.85 * 0.7)
+  const imgHeight = +(height * 0.85 * 0.7).toFixed(0)
   const [imgN, setImgN] = useState(0)
   const styles = {
     previous: {
       top: `${imgHeight * 0.5}px`,
-      left: '2rem'
+      left: '2vw'
     },
     next: {
       top: `${imgHeight * 0.5}px`,
-      right: '2rem'
+      right: '2vw'
     }
   }
   useEffect(() => {
@@ -44,6 +43,7 @@ export default function Project({
     return () => document.removeEventListener("keydown", handleESC);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   function handleImageSwitch(increment: boolean){
     if (imgN == 0 && !increment){
       setImgN(img.length - 1)
@@ -60,7 +60,7 @@ export default function Project({
     <>
       <div className="project" onClick={() => setIsProjectOpen(id)}>
         <div className="project-img-desc-wrap">
-          <img src={img[0]} />
+          <img src={img[imgN]} loading="lazy"/>
           <h2>{name}</h2>
           <h2>{description}</h2>
         </div>
@@ -68,7 +68,7 @@ export default function Project({
       <div className={isProjectOpen === id ? "extended-shown" : "hidden"}>
         <div className="previous-img" style={styles.previous} onClick={() => handleImageSwitch(false)}>{"<"}</div>
         <div className="next-img" style={styles.next} onClick={() => handleImageSwitch(true)}>{">"}</div>
-        <img src={img[imgN]} />
+        <img src={img[imgN]} loading="lazy"/>
         <h2>{name}</h2>
         <p>{descriptionExt}</p>
         <p>{tools}</p>
