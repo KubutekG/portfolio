@@ -400,14 +400,15 @@ p {
 .extended-shown div {
   width: 3rem;
   height: 3rem;
-  background-color: grey;
-  color: red;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: black;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 2rem;
   position: absolute;
+  cursor: pointer;
 }
 
 .slide-from-below * {

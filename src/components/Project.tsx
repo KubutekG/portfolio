@@ -12,7 +12,7 @@ export default function Project({
   setIsProjectOpen,
 }: {
   name: string;
-  img: string;
+  img: string[];
   description: string;
   descriptionExt: string;
   tools: string;
@@ -23,14 +23,15 @@ export default function Project({
   const height = useHeight()
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [imgHeight, setImgHeight] = useState(height * 0.85 * 0.7)
+  const [imgN, setImgN] = useState(0)
   const styles = {
     previous: {
       top: `${imgHeight * 0.5}px`,
-      left: '0px'
+      left: '2rem'
     },
     next: {
       top: `${imgHeight * 0.5}px`,
-      right: '0px'
+      right: '2rem'
     }
   }
   useEffect(() => {
@@ -43,20 +44,31 @@ export default function Project({
     return () => document.removeEventListener("keydown", handleESC);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  function handleImageSwitch(increment: boolean){
+    if (imgN == 0 && !increment){
+      setImgN(img.length - 1)
+    } else if (imgN === img.length - 1 && increment){
+      setImgN(0)
+    } else if (increment){
+      setImgN((i) => i + 1)
+    } else {
+      setImgN((i) => i - 1)
+    }
+  }
   
   return (
     <>
       <div className="project" onClick={() => setIsProjectOpen(id)}>
         <div className="project-img-desc-wrap">
-          <img src={img} />
+          <img src={img[0]} />
           <h2>{name}</h2>
           <h2>{description}</h2>
         </div>
       </div>
       <div className={isProjectOpen === id ? "extended-shown" : "hidden"}>
-        <div className="previous-img" style={styles.previous}>{"<"}</div>
-        <div className="next-img" style={styles.next}>{">"}</div>
-        <img src={img} />
+        <div className="previous-img" style={styles.previous} onClick={() => handleImageSwitch(false)}>{"<"}</div>
+        <div className="next-img" style={styles.next} onClick={() => handleImageSwitch(true)}>{">"}</div>
+        <img src={img[imgN]} />
         <h2>{name}</h2>
         <p>{descriptionExt}</p>
         <p>{tools}</p>
