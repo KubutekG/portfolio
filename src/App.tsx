@@ -88,8 +88,10 @@ function App() {
   useEffect(() => {
     if(isMenuOpen || isProjectOpen != 0){
       document.body.style.overflow = 'hidden'
+      document.body.classList.add('scroll-fix')
     } else {
-      document.body.style.overflow = 'auto'
+      document.body.style.overflow = 'hidden auto'
+      document.body.classList.remove('scroll-fix')
     }
   },[isMenuOpen, isProjectOpen])
 

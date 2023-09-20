@@ -179,13 +179,11 @@ p {
 }
 .intro-text-wrap {
   position: absolute;
-  display: flex;
-  flex-direction: column;
   top: clamp(20vh, 20rem, 20vw);
   right: 5vw;
 }
 .name-intro-title-wrap {
-  text-align: right;
+  text-align: left;
   h1 {
     font-size: $font-h1;
   }
@@ -198,10 +196,6 @@ p {
   }
 }
 .text-p-wrap {
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-  gap: 5%;
   p {
     width: 60%;
     font-size: $font-s;
@@ -383,6 +377,9 @@ p {
   }
 }
 @media (min-width: 900px) {
+  .scroll-fix {
+    margin-right: 15px;
+  }
   .description {
     .desc-left,
     .desc-right {
