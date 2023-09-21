@@ -14,12 +14,14 @@ function App() {
   const { t } = useTranslation();
   const description_head_text = useRef<HTMLDivElement>(null);
   const description = useRef<HTMLElement | null>(null);
-  const [descHeight, setDescHeight] = useState(description.current?.clientHeight)
+  const [descHeight, setDescHeight] = useState(
+    description.current?.clientHeight
+  );
   const [isDescHeadTextIntersect, setDescHeadIntersect] = useState(false);
   const [distanceFromTop, setDistanceFromTop] = useState(window.scrollY);
   const viewportHeight = useHeight();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isProjectOpen, setIsProjectOpen] = useState(0)
+  const [isProjectOpen, setIsProjectOpen] = useState(0);
 
   const styles = {
     wrap: {
@@ -34,7 +36,11 @@ function App() {
       objectPosition: `50% ${50 - distanceFromTop / 20}%`,
     },
     desc_img: {
-      transform: `scale(${getScale(distanceFromTop, viewportHeight, descHeight)})`,
+      transform: `scale(${getScale(
+        distanceFromTop,
+        viewportHeight,
+        descHeight
+      )})`,
     },
     desc_left: {
       transform:
@@ -52,11 +58,11 @@ function App() {
     },
   };
   function toggleProject(id: number) {
-    isProjectOpen ? setIsProjectOpen(0) : setIsProjectOpen(id)
+    isProjectOpen ? setIsProjectOpen(0) : setIsProjectOpen(id);
   }
   function handleBackgroundClick() {
-    setIsMenuOpen(false)
-    setIsProjectOpen(0)
+    setIsMenuOpen(false);
+    setIsProjectOpen(0);
   }
   useEffect(() => {
     function handleMove() {
@@ -82,25 +88,28 @@ function App() {
   }, []);
 
   useEffect(() => {
-    setDescHeight((_height) => description.current!.clientHeight)
-  })
-    
+    setDescHeight((_height) => description.current!.clientHeight);
+  });
+
   useEffect(() => {
-    if(isMenuOpen || isProjectOpen != 0){
-      document.body.style.overflow = 'hidden'
-      document.body.classList.add('scroll-fix')
+    if (isMenuOpen || isProjectOpen != 0) {
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'hidden auto'
-      document.body.classList.remove('scroll-fix')
+      document.body.style.overflow = "hidden auto";
     }
-  },[isMenuOpen, isProjectOpen])
+  }, [isMenuOpen, isProjectOpen]);
 
   return (
     <main>
       <button
         className={`menu-button ${
-          isMenuOpen || descHeight && (distanceFromTop >= viewportHeight + 768 && distanceFromTop < descHeight + viewportHeight + 768) ? "button-inverted" : "button-normal"
-        }`}
+          isMenuOpen ||
+          (descHeight &&
+            distanceFromTop >= viewportHeight + 768 &&
+            distanceFromTop < descHeight + viewportHeight + 768)
+            ? "button-inverted"
+            : "button-normal"
+        }${isMenuOpen || isProjectOpen ? " scroll-fix" : ""}`}
         aria-label="Open or close menu"
         onClick={() =>
           isMenuOpen ? setIsMenuOpen(false) : setIsMenuOpen(true)
@@ -108,7 +117,10 @@ function App() {
       >
         <MenuIcon isMenuOpen={isMenuOpen} />
       </button>
-      <div className={isMenuOpen || isProjectOpen ? "white-bg-block" : "white-bg"} onClick={() => handleBackgroundClick()}></div>
+      <div
+        className={isMenuOpen || isProjectOpen ? "white-bg-block" : "white-bg"}
+        onClick={() => handleBackgroundClick()}
+      ></div>
       <div className={`${isMenuOpen ? "menu show-menu" : "menu"}`}>
         <LanguageSelector isMenuOpen={isMenuOpen} />
         <ul>
@@ -132,15 +144,9 @@ function App() {
             <img src="/dummy.jpg" className="intro-img" style={styles.img} />
           </div>
           <div className="intro-text-wrap">
-            <div className="name-intro-text-wrap">
-              <div className="name-intro-title-wrap">
-                <h1>Jakub Giedzicz</h1>
-                <h2>Fullstack Web Developer</h2>
-              </div>
-              <div className="text-p-wrap">
-                <p>{t("intro")}</p>
-              </div>
-            </div>
+            <h1>Jakub Giedzicz</h1>
+            <h2>Fullstack Web Developer</h2>
+            <p>{t("intro")}</p>
           </div>
           <IntroMarquee />
         </div>
@@ -158,8 +164,8 @@ function App() {
           <h1>{t("description.intro.desc")}</h1>
         </div>
         <div className="description-content-wrap">
-          <div className="desc-left" >
-            <img src="/dummy2.jpg" style={styles.desc_left}/>
+          <div className="desc-left">
+            <img src="/dummy2.jpg" style={styles.desc_left} />
           </div>
           <div className="desc-middle">
             <div className="desc-img-wrap">
@@ -171,15 +177,18 @@ function App() {
               <p className="desc-p">{t("description.main.extend")}</p>
             </div>
           </div>
-          <div className="desc-right" >
-            <img src="/dummy2.jpg" style={styles.desc_right}/>
+          <div className="desc-right">
+            <img src="/dummy2.jpg" style={styles.desc_right} />
           </div>
         </div>
       </section>
       <section className="projects">
         <h1>My projects:</h1>
         <div className="projects-list-container">
-          <Projects isProjectOpen={isProjectOpen} setIsProjectOpen={toggleProject}/>
+          <Projects
+            isProjectOpen={isProjectOpen}
+            setIsProjectOpen={toggleProject}
+          />
         </div>
       </section>
     </main>

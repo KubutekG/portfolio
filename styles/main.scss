@@ -66,6 +66,7 @@ p {
   background-size: 100% 200%;
   background-position: top;
   transition: 0.25s ease-out;
+  transition: margin-right 0s;
   cursor: pointer;
 }
 .button-normal:hover {
@@ -81,6 +82,7 @@ p {
   background-position: top;
   color: $bg-light;
   transition: 0.25s ease-out;
+  transition: margin-right 0s;
   cursor: pointer;
 }
 .button-inverted:hover {
@@ -155,7 +157,7 @@ p {
   }
 }
 .intro {
-  width: 100%;
+  width: 100lvw;
   height: calc(100vh + 800px);
 }
 .intro-wrap {
@@ -180,10 +182,8 @@ p {
 .intro-text-wrap {
   position: absolute;
   top: clamp(20vh, 20rem, 20vw);
-  right: 5vw;
-}
-.name-intro-title-wrap {
-  text-align: left;
+  right: 5lvw;
+  width: 60lvw;
   h1 {
     font-size: $font-h1;
   }
@@ -194,10 +194,7 @@ p {
   h2 {
     padding-top: 1rem;
   }
-}
-.text-p-wrap {
   p {
-    width: 60%;
     font-size: $font-s;
   }
 }
@@ -248,6 +245,7 @@ p {
 }
 .description {
   background-color: $react-blue-dark;
+  width: 100lvw;
   min-height: 130vh;
 }
 .description-head-text {
@@ -297,6 +295,7 @@ p {
 }
 .projects {
   background-color: $bg-light;
+  width: 100lvw;
   h1 {
     font-size: $font-h1;
     text-align: center;
@@ -308,6 +307,7 @@ p {
   margin-inline: 10vw;
   width: 80%;
   display: grid;
+  align-items: flex-start;
   column-gap: 5%;
   row-gap: 4rem;
 }
