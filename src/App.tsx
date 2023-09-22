@@ -65,11 +65,20 @@ function App() {
     setIsProjectOpen(0);
   }
   useEffect(() => {
-    function handleMove() {
+    const handleMove = () => {
       setDistanceFromTop((_dist) => window.scrollY);
-    }
+    };
+    const handleESC = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsMenuOpen(false);
+      }
+    };
     document.addEventListener("scroll", handleMove);
-    return () => document.removeEventListener("scroll", handleMove);
+    document.addEventListener("keydown", handleESC);
+    return () => {
+      document.removeEventListener("scroll", handleMove);
+      document.removeEventListener("keydown", handleESC);
+    };
   }, []);
 
   useEffect(() => {
@@ -92,12 +101,12 @@ function App() {
   });
 
   useEffect(() => {
-    if (isMenuOpen || isProjectOpen != 0) {
+    if (isProjectOpen != 0) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "hidden auto";
     }
-  }, [isMenuOpen, isProjectOpen]);
+  }, [isProjectOpen]);
 
   return (
     <main>
@@ -109,7 +118,7 @@ function App() {
             distanceFromTop < descHeight + viewportHeight + 768)
             ? "button-inverted"
             : "button-normal"
-        }${isMenuOpen || isProjectOpen ? " scroll-fix" : ""}`}
+        }`}
         aria-label="Open or close menu"
         onClick={() =>
           isMenuOpen ? setIsMenuOpen(false) : setIsMenuOpen(true)
@@ -183,7 +192,7 @@ function App() {
         </div>
       </section>
       <section className="projects">
-        <h1>My projects:</h1>
+        <h1>{t("project-intro")}</h1>
         <div className="projects-list-container">
           <Projects
             isProjectOpen={isProjectOpen}

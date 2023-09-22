@@ -17,6 +17,7 @@
       "extend": "Niezależnie czy jest to aplikacja typu SPA czy aplikacja wielostronicowa stworzona przy użyciu systemu szablonów, wiem jak ją stworzyć i szybko nauczę się utrzymać ją w idealnym stanie."
     }
   },
+  "project-intro": "Moje projekty:",
   "projects": {
     "bella": "Bella Ciao to nazwa fikcyjnej restauracji której stworzyłem aplikację internetową używając NextJS oraz MongoDB.",
     "bella-ext": "Ten projekt był dla mnie wprowadzeniem do NextJS, i trafiłem na najlepszy możliwy okres do nauki. Był to czas gdy NextJS przechodził zmiany routingu oraz pobierania danych. Jako iż nowe zmiany nie były gotowe do użycia w produkcji, nauczyłem się wtedy używanych metod takich jak routing na podstawie folderu pages lub getServerSideProps. Z czasem zmiany zostały przygotowane do użycia w produkcji, więc nauczyłem się ich i przerobiłem wokół nich ten projekt. Aplikacja jest hostowana na stronie Vercel, baza danych (trzymająca pozycje menu restauracji) jak wcześniej wspomniałem znajduje się na MongoDB. Praca nad tą aplikacją bardzo pomogła mi w opanowaniu TypeScripta.",
