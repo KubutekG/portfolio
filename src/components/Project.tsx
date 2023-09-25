@@ -66,8 +66,9 @@ export default function Project({
         </div>
       </div>
       <div className={isProjectOpen === id ? "extended-shown" : "hidden"}>
-        <div className="previous-img" style={styles.previous} onClick={() => handleImageSwitch(false)}>{"<"}</div>
-        <div className="next-img" style={styles.next} onClick={() => handleImageSwitch(true)}>{">"}</div>
+        <div className="nav" style={styles.previous} onClick={() => handleImageSwitch(false)}>{"<"}</div>
+        <div className="nav" style={styles.next} onClick={() => handleImageSwitch(true)}>{">"}</div>
+        <div className="img-counter">{imgN + 1}/{img.length}</div>
         <img src={img[imgN]} loading="lazy"/>
         <h2>{name}</h2>
         <p>{descriptionExt}</p>

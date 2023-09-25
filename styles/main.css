@@ -391,7 +391,12 @@ p {
 .extended-shown p {
   margin: 0 0 1rem 1rem;
 }
-.extended-shown div {
+.extended-shown .img-counter {
+  position: absolute;
+  top: 70%;
+  right: 1vw;
+}
+.extended-shown .nav {
   width: 3rem;
   height: 3rem;
   background-color: rgba(255, 255, 255, 0.7);
@@ -403,6 +408,10 @@ p {
   font-size: 2rem;
   position: absolute;
   cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+.extended-shown .nav:hover {
+  background-color: rgb(255, 255, 255);
 }
 
 .slide-from-below * {

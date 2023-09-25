@@ -351,7 +351,12 @@ p {
   p {
     margin: 0 0 1rem 1rem;
   }
-  div {
+  .img-counter {
+    position: absolute;
+    top: 70%;
+    right: 1vw;
+  }
+  .nav {
     width: 3rem;
     height: 3rem;
     background-color: rgba(255, 255, 255, 0.7);
@@ -363,6 +368,10 @@ p {
     font-size: 2rem;
     position: absolute;
     cursor: pointer;
+    transition: all 0.1s ease-in-out;
+  }
+  .nav:hover {
+    background-color: rgb(255, 255, 255);
   }
 }
 .slide-from-below * {
