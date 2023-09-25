@@ -109,9 +109,13 @@ p {
     text-transform: uppercase;
     li {
       cursor: pointer;
-    }
-    li:hover {
-      color: $bg-light;
+      a {
+        text-decoration: none;
+        color: white;
+      }
+      a:hover {
+        color: $bg-light;
+      }
     }
   }
 }
@@ -155,7 +159,7 @@ p {
     color: $react-blue-dark;
   }
 }
-.intro {
+#intro {
   width: 100vw;
   height: calc(100vh + 800px);
 }
@@ -242,7 +246,7 @@ p {
   display: block;
   padding: 0.5rem 0;
 }
-.description {
+#description {
   background-color: $react-blue-dark;
   width: 100vw;
   min-height: 130vh;
@@ -292,7 +296,7 @@ p {
     padding-bottom: 2rem;
   }
 }
-.projects {
+#projects {
   background-color: $bg-light;
   width: 100vw;
   h1 {
@@ -385,7 +389,7 @@ p {
   }
 }
 @media (min-width: 900px) {
-  .description {
+  #description {
     .desc-left,
     .desc-right {
       display: flex;

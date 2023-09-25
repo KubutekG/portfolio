@@ -8,6 +8,7 @@ export default function Project({
   descriptionExt,
   tools,
   id,
+  link,
   isProjectOpen,
   setIsProjectOpen,
 }: {
@@ -17,6 +18,7 @@ export default function Project({
   descriptionExt: string;
   tools: string;
   id: number;
+  link: string
   isProjectOpen: number;
   setIsProjectOpen: (id: number) => void;
 }) {
@@ -70,7 +72,7 @@ export default function Project({
         <div className="nav" style={styles.next} onClick={() => handleImageSwitch(true)}>{">"}</div>
         <div className="img-counter">{imgN + 1}/{img.length}</div>
         <img src={img[imgN]} loading="lazy"/>
-        <h2>{name}</h2>
+        <a href={link} target="_blank" rel="noreferrer noopener"><h2>{name}</h2></a>
         <p>{descriptionExt}</p>
         <p>{tools}</p>
       </div>

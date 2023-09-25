@@ -134,20 +134,20 @@ function App() {
         <LanguageSelector isMenuOpen={isMenuOpen} />
         <ul>
           <li className={isMenuOpen ? "menu-item1" : "hide-menu-item"}>
-            {t("menu.main")}
+            <a href="#intro">{t("menu.main")}</a>
           </li>
           <li className={isMenuOpen ? "menu-item2" : "hide-menu-item"}>
-            {t("menu.about")}
+            <a href="#description">{t("menu.about")}</a>
           </li>
           <li className={isMenuOpen ? "menu-item3" : "hide-menu-item"}>
-            {t("menu.projects")}
+            <a href="#projects">{t("menu.projects")}</a>
           </li>
           <li className={isMenuOpen ? "menu-item4" : "hide-menu-item"}>
-            {t("menu.contact")}
+            <a href="#contact">{t("menu.contact")}</a>
           </li>
         </ul>
       </div>
-      <section className="intro">
+      <section id="intro">
         <div className="intro-wrap">
           <div className="intro-img-wrap" style={styles.wrap}>
             <img src="/dummy.jpg" className="intro-img" style={styles.img} />
@@ -160,7 +160,7 @@ function App() {
           <IntroMarquee />
         </div>
       </section>
-      <section className="description" ref={description}>
+      <section id="description" ref={description}>
         <div
           className={`${
             isDescHeadTextIntersect
@@ -191,7 +191,7 @@ function App() {
           </div>
         </div>
       </section>
-      <section className="projects">
+      <section id="projects">
         <h1>{t("project-intro")}</h1>
         <div className="projects-list-container">
           <Projects

@@ -125,7 +125,11 @@ p {
 .menu ul li {
   cursor: pointer;
 }
-.menu ul li:hover {
+.menu ul li a {
+  text-decoration: none;
+  color: white;
+}
+.menu ul li a:hover {
   color: rgb(245, 230, 200);
 }
 
@@ -176,7 +180,7 @@ p {
   color: #00879f;
 }
 
-.intro {
+#intro {
   width: 100vw;
   height: calc(100vh + 800px);
 }
@@ -276,7 +280,7 @@ p {
   padding: 0.5rem 0;
 }
 
-.description {
+#description {
   background-color: #00879f;
   width: 100vw;
   min-height: 130vh;
@@ -328,11 +332,11 @@ p {
   padding-bottom: 2rem;
 }
 
-.projects {
+#projects {
   background-color: rgb(245, 230, 200);
   width: 100vw;
 }
-.projects h1 {
+#projects h1 {
   font-size: clamp(6vh, 6rem, 6vw);
   text-align: center;
   color: #00879f;
@@ -424,35 +428,35 @@ p {
   }
 }
 @media (min-width: 900px) {
-  .description .desc-left,
-  .description .desc-right {
+  #description .desc-left,
+  #description .desc-right {
     display: flex;
     justify-content: center;
   }
-  .description .desc-left img,
-  .description .desc-right img {
+  #description .desc-left img,
+  #description .desc-right img {
     width: 80%;
     display: inline;
   }
-  .description .desc-left {
+  #description .desc-left {
     margin-top: 4rem;
     align-items: flex-start;
   }
-  .description .desc-left img {
+  #description .desc-left img {
     border-radius: 20% 0 0 0;
   }
-  .description .desc-right {
+  #description .desc-right {
     margin-top: 16rem;
     align-items: center;
   }
-  .description .desc-right img {
+  #description .desc-right img {
     border-radius: 0 20% 0 0;
   }
-  .description .description-content-wrap {
+  #description .description-content-wrap {
     display: flex;
     overflow: hidden;
   }
-  .description .description-content-wrap .desc-middle .desc-img-wrap {
+  #description .description-content-wrap .desc-middle .desc-img-wrap {
     width: 100%;
   }
   .projects-list-container {

@@ -16,6 +16,7 @@ export default function Projects({
       descriptionExt: t("projects.bella-ext"),
       tech: t("projects.bella-tech"),
       name: "Bella Ciao",
+      link: "https://bella-ciao-kubutekg.vercel.app",
       id: 1,
     },
     {
@@ -24,6 +25,7 @@ export default function Projects({
       descriptionExt: t("projects.portfolio-ext"),
       tech: t("projects.portfolio-tech"),
       name: "Portfolio",
+      link: "",
       id: 2,
     },
     {
@@ -32,6 +34,7 @@ export default function Projects({
       descriptionExt: "DescE",
       tech: "h",
       name: "aha",
+      link: "",
       id: 3,
     },
   ];
@@ -49,6 +52,7 @@ export default function Projects({
             isProjectOpen={isProjectOpen}
             setIsProjectOpen={setIsProjectOpen}
             key={project.id}
+            link={project.link}
           />
         );
       })}
