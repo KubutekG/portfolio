@@ -191,13 +191,18 @@ function App() {
           </div>
         </div>
       </section>
-      <section id="projects">
-        <h1>{t("project-intro")}</h1>
-        <div className="projects-list-container">
-          <Projects
-            isProjectOpen={isProjectOpen}
-            setIsProjectOpen={toggleProject}
-          />
+      <section id="ending">
+        <div id="projects">
+          <h1>{t("project-intro")}</h1>
+          <div className="projects-list-container">
+            <Projects
+              isProjectOpen={isProjectOpen}
+              setIsProjectOpen={toggleProject}
+            />
+          </div>
+        </div>
+        <div id="contact">
+          
         </div>
       </section>
     </main>
