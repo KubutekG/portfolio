@@ -14,7 +14,7 @@ body {
 .white-bg-block {
   overflow: hidden;
   background-color: rgb(255, 255, 255);
-  z-index: 1;
+  z-index: 3;
   position: fixed;
   width: 100vw;
   height: 100vh;
@@ -52,7 +52,7 @@ p {
 }
 
 .menu-button {
-  z-index: 3;
+  z-index: 6;
   position: fixed;
   top: 1rem;
   right: 1rem;
@@ -112,7 +112,7 @@ p {
   height: 0;
   border-radius: 50% 0 50% 50%;
   background-color: #00879f;
-  z-index: 1;
+  z-index: 5;
   transition: all 1s ease-in;
 }
 .menu ul {
@@ -134,18 +134,22 @@ p {
 }
 
 .menu-item1 {
-  animation: slideListItem 2s;
+  animation: slideListItem 1.7s;
 }
 
 .menu-item2 {
-  animation: slideListItem 2.3s;
+  animation: slideListItem 2s;
 }
 
 .menu-item3 {
-  animation: slideListItem 2.6s;
+  animation: slideListItem 2.3s;
 }
 
 .menu-item4 {
+  animation: slideListItem 2.6s;
+}
+
+.menu-item5 {
   animation: slideListItem 2.9s;
 }
 
@@ -155,7 +159,7 @@ p {
 
 .show-menu {
   width: calc(250px + 10vw);
-  height: 300px;
+  height: 350px;
   border-radius: 0 0 0 10%;
 }
 
@@ -332,16 +336,11 @@ p {
   padding-bottom: 2rem;
 }
 
-#ending {
-  background-color: rgb(245, 230, 200);
-}
-
 #projects {
   width: 100vw;
-  border-radius: 0 0 10% 10%;
-  background-color: green;
+  border-radius: 0 0 75px 75px;
   position: relative;
-  z-index: 2;
+  padding-bottom: 2rem;
 }
 #projects h1 {
   font-size: clamp(6vh, 6rem, 6vw);
@@ -387,7 +386,7 @@ p {
   left: 50%;
   position: fixed;
   transform: translateY(-50%) translateX(-50%);
-  z-index: 2;
+  z-index: 4;
   cursor: default;
   overflow-y: auto;
 }
@@ -423,14 +422,6 @@ p {
 }
 .extended-shown .nav:hover {
   background-color: rgb(255, 255, 255);
-}
-
-#contact {
-  background-color: red;
-  height: 100px;
-  bottom: 10px;
-  position: relative;
-  z-index: 1;
 }
 
 .slide-from-below * {

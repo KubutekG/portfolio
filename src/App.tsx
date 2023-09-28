@@ -140,9 +140,12 @@ function App() {
             <a href="#description">{t("menu.about")}</a>
           </li>
           <li className={isMenuOpen ? "menu-item3" : "hide-menu-item"}>
-            <a href="#projects">{t("menu.projects")}</a>
+            <a href="#skills">{t("menu.skills")}</a>
           </li>
           <li className={isMenuOpen ? "menu-item4" : "hide-menu-item"}>
+            <a href="#projects">{t("menu.projects")}</a>
+          </li>
+          <li className={isMenuOpen ? "menu-item5" : "hide-menu-item"}>
             <a href="#contact">{t("menu.contact")}</a>
           </li>
         </ul>
@@ -191,19 +194,15 @@ function App() {
           </div>
         </div>
       </section>
-      <section id="ending">
-        <div id="projects">
-          <h1>{t("project-intro")}</h1>
-          <div className="projects-list-container">
-            <Projects
-              isProjectOpen={isProjectOpen}
-              setIsProjectOpen={toggleProject}
-            />
-          </div>
+      <section id="projects">
+        <h1>{t("project-intro")}</h1>
+        <div className="projects-list-container">
+          <Projects
+            isProjectOpen={isProjectOpen}
+            setIsProjectOpen={toggleProject}
+          />
         </div>
-        <div id="contact">
-          
-        </div>
+        <section id="contact"></section>
       </section>
     </main>
   );
