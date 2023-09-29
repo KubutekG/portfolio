@@ -8,13 +8,13 @@ export default function IntroMarquee() {
                 <MarqueeElement style="transparent" content="react" />
                 <MarqueeElement style="color" content="typescript" />
                 <MarqueeElement style="transparent" content="scss" />
-                <MarqueeElement style="color" content="rwd" />
+                <MarqueeElement style="color" content="css-in-js" />
               </ul>
               <ul aria-hidden="true" className="marquee_content left">
                 <MarqueeElement style="transparent" content="react" />
                 <MarqueeElement style="color" content="typescript" />
                 <MarqueeElement style="transparent" content="scss" />
-                <MarqueeElement style="color" content="rwd" />
+                <MarqueeElement style="color" content="css-in-js" />
               </ul>
             </div>
             <div className="marquee">

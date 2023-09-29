@@ -51,6 +51,13 @@ p {
   overflow-y: hidden;
 }
 
+.col-center-flex {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
 .menu-button {
   z-index: 6;
   position: fixed;
@@ -336,6 +343,37 @@ p {
   padding-bottom: 2rem;
 }
 
+#skills h1 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: clamp(6vh, 6rem, 6vw);
+}
+#skills .skill-container {
+  padding-bottom: 2rem;
+}
+#skills .item {
+  background-color: white;
+  color: black;
+  border-radius: 5% 5% 5% 5%;
+}
+#skills .item .item-img-wrap {
+  padding-top: 1rem;
+}
+#skills .item .item-img-wrap img {
+  max-width: 70%;
+}
+#skills .item .item-desc {
+  text-align: center;
+}
+
+.left {
+  border-radius: 5% 0 0 0;
+}
+
+.right {
+  border-radius: 0 5% 0 0;
+}
+
 #projects {
   width: 100vw;
   border-radius: 0 0 75px 75px;
@@ -475,6 +513,9 @@ p {
   }
   .projects-list-container {
     grid-template-columns: 30% 30% 30%;
+  }
+  .skill-container {
+    grid-template-columns: repeat(4, 22.5%);
   }
 }
 @keyframes scrollRight {
