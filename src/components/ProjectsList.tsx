@@ -32,7 +32,7 @@ export default function Projects({
       img: ["/szybka1.png", "/szybka2.png"],
       description: t("projects.szybka"),
       descriptionExt: t("projects.szybka-ext"),
-      tech: "h",
+      tech: t("projects.szybka-tech"),
       name: "Szybka Pogoda",
       link: "https://szybka-pogoda.web.app",
       id: 3,

@@ -162,7 +162,7 @@ p {
 
 .show-menu {
   width: calc(250px + 10vw);
-  height: 350px;
+  height: 300px;
   border-radius: 0 0 0 10%;
 }
 
