@@ -29,12 +29,12 @@ export default function Projects({
       id: 2,
     },
     {
-      img: ["/dummy2.jpg"],
-      description: "Description",
-      descriptionExt: "DescE",
+      img: ["/szybka1.png", "/szybka2.png"],
+      description: t("projects.szybka"),
+      descriptionExt: t("projects.szybka-ext"),
       tech: "h",
-      name: "aha",
-      link: "",
+      name: "Szybka Pogoda",
+      link: "https://szybka-pogoda.web.app",
       id: 3,
     },
   ];

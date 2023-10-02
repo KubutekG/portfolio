@@ -25,6 +25,9 @@
     "bella-tech": "Tools used: NextJS, TypeScript, MongoDB, CSS Modules",
     "portfolio": "The website showcasing my personal projects, made with Vite.",
     "portfolio-ext": "After Bella Ciao I decided that I want more styling practice and went with SPA Portfolio and chose to use and learn SASS. Eventually I also incorporated styled components into the project.",
-    "portfolio-tech": "Tools used: Vite, TypeScript, React, SASS, CSS-in-JS"
+    "portfolio-tech": "Tools used: Vite, TypeScript, React, SASS, CSS-in-JS",
+    "szybka": "Simple website to check weather in a specified city",
+    "szybka-ext": "Szybka Pogoda was one of my first websites when I started learning React, Material UI and API data fetching. Here after user enters a city name, the app fetches weather data from AccuWeather API and displays the most important information. The app has been deployed on Firebase",
+    "szybka-tech": "Tools used: Vite, Firebase, AccuWeather API, Material UI"
   }
 }

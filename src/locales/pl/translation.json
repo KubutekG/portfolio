@@ -25,6 +25,9 @@
     "bella-tech": "Użyte narzędzia: NextJS, TypeScript, MongoDB, Moduły CSS",
     "portfolio": "Aplikacja prezentująca moje osobiste projekty, stworzona przy użyciu Vite.",
     "portfolio-ext": "Po skończeniu Bella Ciao zdecydowałem się na projekt przy którym mógłbym skupić się na rozwijaniu moich zdolności stylowania, więc wybrałem SPA Portfolio z użyciem SASS. Z czasem zacząłem też używać styled components.",
-    "portfolio-tech": "Użyte narzędzia: Vite, TypeScript, React, SASS, CSS-in-JS"
+    "portfolio-tech": "Użyte narzędzia: Vite, TypeScript, React, SASS, CSS-in-JS",
+    "szybka": "Prosta aplikacja którą można sprawdzić pogodę w wybranym mieście",
+    "szybka-ext": "Szybka Pogoda to jedna z moich początkowych stron podczas nauki Reacta, Material UI oraz fetchowania danych z API, w tym przypadku AccuWeather City API. Po wpisaniu nazwy miasta, aplikacja pobiera informacje o pogodzie i wyświetla te najważniejsze. Hostowana przy użyciu Firebase",
+    "szybka-tech": "Użyte narzędzia: Vite, Firebase, AccuWeather API, Material UI"
   }
 }
