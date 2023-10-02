@@ -140,12 +140,9 @@ function App() {
             <a href="#description">{t("menu.about")}</a>
           </li>
           <li className={isMenuOpen ? "menu-item3" : "hide-menu-item"}>
-            <a href="#skills">{t("menu.skills")}</a>
-          </li>
-          <li className={isMenuOpen ? "menu-item4" : "hide-menu-item"}>
             <a href="#projects">{t("menu.projects")}</a>
           </li>
-          <li className={isMenuOpen ? "menu-item5" : "hide-menu-item"}>
+          <li className={isMenuOpen ? "menu-item4" : "hide-menu-item"}>
             <a href="#contact">{t("menu.contact")}</a>
           </li>
         </ul>
@@ -191,19 +188,6 @@ function App() {
           </div>
           <div className="desc-right">
             <img src="/dummy2.jpg" style={styles.desc_right} />
-          </div>
-        </div>
-        <div id="skills">
-          <h1>{t("description.skills.intro")}</h1>
-          <div className="projects-list-container skill-container">
-            <div className="item">
-              <div className="item-img-wrap col-center-flex">
-                <img loading="lazy" src="/dummy.jpg" />
-              </div>
-              <div className="item-desc">
-                <p>React</p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
