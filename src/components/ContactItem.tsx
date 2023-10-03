@@ -11,7 +11,7 @@ export default function ContactItem({
     <>
       <div className="contact-item">
         <div className="contact-item-name-wrap">
-          <a href={link} target="_blank">
+          <a href={link} target="_blank" className="name-link">
             <h2>{name}</h2>
           </a>
         </div>
