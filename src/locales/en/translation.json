@@ -29,5 +29,8 @@
     "szybka": "Simple website to check weather in a specified city",
     "szybka-ext": "Szybka Pogoda was one of my first websites when I started learning React, Material UI and API data fetching. Here after user enters a city name, the app fetches weather data from AccuWeather API and displays the most important information. The app has been deployed on Firebase",
     "szybka-tech": "Tools used: Vite, Firebase, AccuWeather API, Material UI"
+  },
+  "contact": {
+    "intro": "Contact me"
   }
 }

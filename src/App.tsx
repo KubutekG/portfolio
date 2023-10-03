@@ -9,6 +9,7 @@ import IntroMarquee from "./components/IntroMarquee";
 import { getHeight, getWidth, getScale, getTranslateY } from "./lib/getSize";
 import Projects from "./components/ProjectsList";
 import useHeight from "./lib/useHeight";
+import ContactItem from "./components/ContactItem";
 
 function App() {
   const { t } = useTranslation();
@@ -191,16 +192,39 @@ function App() {
           </div>
         </div>
       </section>
-      <section id="projects">
-        <h1>{t("project-intro")}</h1>
-        <div className="projects-list-container">
-          <Projects
-            isProjectOpen={isProjectOpen}
-            setIsProjectOpen={toggleProject}
-          />
-        </div>
-        <section id="contact"></section>
-      </section>
+      <div className="end-wrap">
+        <section id="projects">
+          <div className="projects-wrap">
+            <h1>{t("project-intro")}</h1>
+            <div className="projects-list-container">
+              <Projects
+                isProjectOpen={isProjectOpen}
+                setIsProjectOpen={toggleProject}
+              />
+            </div>
+          </div>
+        </section>
+        <section id="contact">
+          <h1>{t("contact.intro")}</h1>
+          <div className="contact-items">
+            <ContactItem
+              name="Github"
+              src="./github-mark-white.svg"
+              link="https://github.com/KubutekG"
+            />
+            <ContactItem
+              name="LinkedIn"
+              src="./LI-In-Bug.png"
+              link="https://www.linkedin.com/in/jakub-giedzicz-486b43267/"
+            />
+            <ContactItem
+              name="Facebook"
+              src="./Facebook_Logo_Secondary.png"
+              link="https://www.facebook.com/jakub.giedzicz"
+            />
+          </div>
+        </section>
+      </div>
     </main>
   );
 }

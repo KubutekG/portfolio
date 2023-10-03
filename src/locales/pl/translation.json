@@ -29,5 +29,8 @@
     "szybka": "Prosta aplikacja którą można sprawdzić pogodę w wybranym mieście",
     "szybka-ext": "Szybka Pogoda to jedna z moich początkowych stron podczas nauki Reacta, Material UI oraz fetchowania danych z API, w tym przypadku AccuWeather City API. Po wpisaniu nazwy miasta, aplikacja pobiera informacje o pogodzie i wyświetla te najważniejsze. Hostowana przy użyciu Firebase",
     "szybka-tech": "Użyte narzędzia: Vite, Firebase, AccuWeather API, Material UI"
+  },
+  "contact": {
+    "intro": "Kontakt"
   }
 }

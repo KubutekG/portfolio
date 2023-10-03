@@ -51,13 +51,6 @@ p {
   overflow-y: hidden;
 }
 
-.col-center-flex {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
-
 .menu-button {
   z-index: 6;
   position: fixed;
@@ -332,7 +325,6 @@ p {
   margin: 2rem 0;
 }
 .description-content-wrap p {
-  margin: 0.5rem 0;
   font-size: clamp(1.75vh, 1.25rem, 1.25vw);
 }
 .description-content-wrap .desc-p {
@@ -341,14 +333,19 @@ p {
 
 #projects {
   width: 100vw;
-  border-radius: 0 0 75px 75px;
-  position: relative;
-  padding-bottom: 2rem;
+  background-color: #00879f;
 }
 #projects h1 {
   font-size: clamp(6vh, 6rem, 6vw);
   text-align: center;
   color: #00879f;
+}
+
+.projects-wrap {
+  background-color: rgb(245, 230, 200);
+  width: 100%;
+  height: 100%;
+  border-radius: 0 0 75px 75px;
 }
 
 .projects-list-container {
@@ -359,6 +356,7 @@ p {
   align-items: flex-start;
   column-gap: 5%;
   row-gap: 4rem;
+  padding-bottom: 1rem;
 }
 
 .project {
@@ -425,6 +423,42 @@ p {
 }
 .extended-shown .nav:hover {
   background-color: rgb(255, 255, 255);
+}
+
+.end-wrap {
+  background-color: #00879f;
+}
+
+#contact {
+  background-color: #00879f;
+}
+#contact h1 {
+  text-align: center;
+  font-size: clamp(6vh, 6rem, 6vw);
+  padding-bottom: 4rem;
+}
+#contact .contact-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 2rem;
+  padding-bottom: 1rem;
+}
+#contact .contact-item {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+#contact .contact-item img {
+  max-width: 32px;
+}
+#contact .contact-item a {
+  text-decoration: none;
+  color: white;
 }
 
 .slide-from-below * {
